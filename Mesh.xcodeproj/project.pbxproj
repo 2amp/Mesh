@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		89FB5DE31CAF8BC7004B280A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5DE21CAF8BC7004B280A /* AppDelegate.swift */; };
+		89FB5DE51CAF8BC7004B280A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5DE41CAF8BC7004B280A /* ViewController.swift */; };
+		89FB5DE81CAF8BC7004B280A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FB5DE61CAF8BC7004B280A /* Main.storyboard */; };
+		89FB5DEB1CAF8BC7004B280A /* Mesh.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5DE91CAF8BC7004B280A /* Mesh.xcdatamodeld */; };
+		89FB5DED1CAF8BC7004B280A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FB5DEC1CAF8BC7004B280A /* Assets.xcassets */; };
+		89FB5DF01CAF8BC7004B280A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FB5DEE1CAF8BC7004B280A /* LaunchScreen.storyboard */; };
+		89FB5DFB1CAF8BC8004B280A /* MeshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5DFA1CAF8BC8004B280A /* MeshTests.swift */; };
+		89FB5E061CAF8BC8004B280A /* MeshUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E051CAF8BC8004B280A /* MeshUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		89FB5DF71CAF8BC8004B280A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89FB5DD71CAF8BC7004B280A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89FB5DDE1CAF8BC7004B280A;
+			remoteInfo = Mesh;
+		};
+		89FB5E021CAF8BC8004B280A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89FB5DD71CAF8BC7004B280A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89FB5DDE1CAF8BC7004B280A;
+			remoteInfo = Mesh;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		89FB5DDF1CAF8BC7004B280A /* Mesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89FB5DE21CAF8BC7004B280A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		89FB5DE41CAF8BC7004B280A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		89FB5DE71CAF8BC7004B280A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		89FB5DEA1CAF8BC7004B280A /* Mesh.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mesh.xcdatamodel; sourceTree = "<group>"; };
+		89FB5DEC1CAF8BC7004B280A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89FB5DEF1CAF8BC7004B280A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89FB5DF11CAF8BC7004B280A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89FB5DF61CAF8BC8004B280A /* MeshTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeshTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89FB5DFA1CAF8BC8004B280A /* MeshTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshTests.swift; sourceTree = "<group>"; };
+		89FB5DFC1CAF8BC8004B280A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89FB5E011CAF8BC8004B280A /* MeshUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeshUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89FB5E051CAF8BC8004B280A /* MeshUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshUITests.swift; sourceTree = "<group>"; };
+		89FB5E071CAF8BC8004B280A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89FB5DDC1CAF8BC7004B280A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89FB5DF31CAF8BC8004B280A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89FB5DFE1CAF8BC8004B280A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		89FB5DD61CAF8BC7004B280A = {
+			isa = PBXGroup;
+			children = (
+				89FB5DE11CAF8BC7004B280A /* Mesh */,
+				89FB5DF91CAF8BC8004B280A /* MeshTests */,
+				89FB5E041CAF8BC8004B280A /* MeshUITests */,
+				89FB5DE01CAF8BC7004B280A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		89FB5DE01CAF8BC7004B280A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89FB5DDF1CAF8BC7004B280A /* Mesh.app */,
+				89FB5DF61CAF8BC8004B280A /* MeshTests.xctest */,
+				89FB5E011CAF8BC8004B280A /* MeshUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89FB5DE11CAF8BC7004B280A /* Mesh */ = {
+			isa = PBXGroup;
+			children = (
+				89FB5DE21CAF8BC7004B280A /* AppDelegate.swift */,
+				89FB5DE41CAF8BC7004B280A /* ViewController.swift */,
+				89FB5DE61CAF8BC7004B280A /* Main.storyboard */,
+				89FB5DEC1CAF8BC7004B280A /* Assets.xcassets */,
+				89FB5DEE1CAF8BC7004B280A /* LaunchScreen.storyboard */,
+				89FB5DF11CAF8BC7004B280A /* Info.plist */,
+				89FB5DE91CAF8BC7004B280A /* Mesh.xcdatamodeld */,
+			);
+			path = Mesh;
+			sourceTree = "<group>";
+		};
+		89FB5DF91CAF8BC8004B280A /* MeshTests */ = {
+			isa = PBXGroup;
+			children = (
+				89FB5DFA1CAF8BC8004B280A /* MeshTests.swift */,
+				89FB5DFC1CAF8BC8004B280A /* Info.plist */,
+			);
+			path = MeshTests;
+			sourceTree = "<group>";
+		};
+		89FB5E041CAF8BC8004B280A /* MeshUITests */ = {
+			isa = PBXGroup;
+			children = (
+				89FB5E051CAF8BC8004B280A /* MeshUITests.swift */,
+				89FB5E071CAF8BC8004B280A /* Info.plist */,
+			);
+			path = MeshUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		89FB5DDE1CAF8BC7004B280A /* Mesh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89FB5E0A1CAF8BC8004B280A /* Build configuration list for PBXNativeTarget "Mesh" */;
+			buildPhases = (
+				89FB5DDB1CAF8BC7004B280A /* Sources */,
+				89FB5DDC1CAF8BC7004B280A /* Frameworks */,
+				89FB5DDD1CAF8BC7004B280A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mesh;
+			productName = Mesh;
+			productReference = 89FB5DDF1CAF8BC7004B280A /* Mesh.app */;
+			productType = "com.apple.product-type.application";
+		};
+		89FB5DF51CAF8BC8004B280A /* MeshTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89FB5E0D1CAF8BC8004B280A /* Build configuration list for PBXNativeTarget "MeshTests" */;
+			buildPhases = (
+				89FB5DF21CAF8BC8004B280A /* Sources */,
+				89FB5DF31CAF8BC8004B280A /* Frameworks */,
+				89FB5DF41CAF8BC8004B280A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89FB5DF81CAF8BC8004B280A /* PBXTargetDependency */,
+			);
+			name = MeshTests;
+			productName = MeshTests;
+			productReference = 89FB5DF61CAF8BC8004B280A /* MeshTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		89FB5E001CAF8BC8004B280A /* MeshUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89FB5E101CAF8BC8004B280A /* Build configuration list for PBXNativeTarget "MeshUITests" */;
+			buildPhases = (
+				89FB5DFD1CAF8BC8004B280A /* Sources */,
+				89FB5DFE1CAF8BC8004B280A /* Frameworks */,
+				89FB5DFF1CAF8BC8004B280A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89FB5E031CAF8BC8004B280A /* PBXTargetDependency */,
+			);
+			name = MeshUITests;
+			productName = MeshUITests;
+			productReference = 89FB5E011CAF8BC8004B280A /* MeshUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89FB5DD71CAF8BC7004B280A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = 2amp;
+				TargetAttributes = {
+					89FB5DDE1CAF8BC7004B280A = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = R5H827C655;
+					};
+					89FB5DF51CAF8BC8004B280A = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = R5H827C655;
+						TestTargetID = 89FB5DDE1CAF8BC7004B280A;
+					};
+					89FB5E001CAF8BC8004B280A = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = R5H827C655;
+						TestTargetID = 89FB5DDE1CAF8BC7004B280A;
+					};
+				};
+			};
+			buildConfigurationList = 89FB5DDA1CAF8BC7004B280A /* Build configuration list for PBXProject "Mesh" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 89FB5DD61CAF8BC7004B280A;
+			productRefGroup = 89FB5DE01CAF8BC7004B280A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89FB5DDE1CAF8BC7004B280A /* Mesh */,
+				89FB5DF51CAF8BC8004B280A /* MeshTests */,
+				89FB5E001CAF8BC8004B280A /* MeshUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89FB5DDD1CAF8BC7004B280A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89FB5DF01CAF8BC7004B280A /* LaunchScreen.storyboard in Resources */,
+				89FB5DED1CAF8BC7004B280A /* Assets.xcassets in Resources */,
+				89FB5DE81CAF8BC7004B280A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89FB5DF41CAF8BC8004B280A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89FB5DFF1CAF8BC8004B280A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89FB5DDB1CAF8BC7004B280A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89FB5DEB1CAF8BC7004B280A /* Mesh.xcdatamodeld in Sources */,
+				89FB5DE51CAF8BC7004B280A /* ViewController.swift in Sources */,
+				89FB5DE31CAF8BC7004B280A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89FB5DF21CAF8BC8004B280A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89FB5DFB1CAF8BC8004B280A /* MeshTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89FB5DFD1CAF8BC8004B280A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89FB5E061CAF8BC8004B280A /* MeshUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		89FB5DF81CAF8BC8004B280A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89FB5DDE1CAF8BC7004B280A /* Mesh */;
+			targetProxy = 89FB5DF71CAF8BC8004B280A /* PBXContainerItemProxy */;
+		};
+		89FB5E031CAF8BC8004B280A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89FB5DDE1CAF8BC7004B280A /* Mesh */;
+			targetProxy = 89FB5E021CAF8BC8004B280A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		89FB5DE61CAF8BC7004B280A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89FB5DE71CAF8BC7004B280A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		89FB5DEE1CAF8BC7004B280A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89FB5DEF1CAF8BC7004B280A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		89FB5E081CAF8BC8004B280A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		89FB5E091CAF8BC8004B280A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89FB5E0B1CAF8BC8004B280A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Mesh/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.2amp.Mesh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		89FB5E0C1CAF8BC8004B280A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Mesh/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.2amp.Mesh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		89FB5E0E1CAF8BC8004B280A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MeshTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.2amp.MeshTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mesh.app/Mesh";
+			};
+			name = Debug;
+		};
+		89FB5E0F1CAF8BC8004B280A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MeshTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.2amp.MeshTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mesh.app/Mesh";
+			};
+			name = Release;
+		};
+		89FB5E111CAF8BC8004B280A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MeshUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.2amp.MeshUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Mesh;
+			};
+			name = Debug;
+		};
+		89FB5E121CAF8BC8004B280A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MeshUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.2amp.MeshUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Mesh;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89FB5DDA1CAF8BC7004B280A /* Build configuration list for PBXProject "Mesh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89FB5E081CAF8BC8004B280A /* Debug */,
+				89FB5E091CAF8BC8004B280A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89FB5E0A1CAF8BC8004B280A /* Build configuration list for PBXNativeTarget "Mesh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89FB5E0B1CAF8BC8004B280A /* Debug */,
+				89FB5E0C1CAF8BC8004B280A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		89FB5E0D1CAF8BC8004B280A /* Build configuration list for PBXNativeTarget "MeshTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89FB5E0E1CAF8BC8004B280A /* Debug */,
+				89FB5E0F1CAF8BC8004B280A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		89FB5E101CAF8BC8004B280A /* Build configuration list for PBXNativeTarget "MeshUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89FB5E111CAF8BC8004B280A /* Debug */,
+				89FB5E121CAF8BC8004B280A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		89FB5DE91CAF8BC7004B280A /* Mesh.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				89FB5DEA1CAF8BC7004B280A /* Mesh.xcdatamodel */,
+			);
+			currentVersion = 89FB5DEA1CAF8BC7004B280A /* Mesh.xcdatamodel */;
+			path = Mesh.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 89FB5DD71CAF8BC7004B280A /* Project object */;
+}
