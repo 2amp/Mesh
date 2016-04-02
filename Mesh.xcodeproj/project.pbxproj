@@ -15,6 +15,9 @@
 		89FB5DF01CAF8BC7004B280A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FB5DEE1CAF8BC7004B280A /* LaunchScreen.storyboard */; };
 		89FB5DFB1CAF8BC8004B280A /* MeshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5DFA1CAF8BC8004B280A /* MeshTests.swift */; };
 		89FB5E061CAF8BC8004B280A /* MeshUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E051CAF8BC8004B280A /* MeshUITests.swift */; };
+		89FB5E1F1CB07ADC004B280A /* Advertiser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FB5E1E1CB07ADC004B280A /* Advertiser.storyboard */; };
+		89FB5E211CB07B37004B280A /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FB5E201CB07B37004B280A /* Client.storyboard */; };
+		89FB5E251CB07C83004B280A /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 89FB5E241CB07C83004B280A /* Fonts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,16 +52,9 @@
 		89FB5E011CAF8BC8004B280A /* MeshUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeshUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FB5E051CAF8BC8004B280A /* MeshUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshUITests.swift; sourceTree = "<group>"; };
 		89FB5E071CAF8BC8004B280A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89FB5E141CAF8E8B004B280A /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
-		89FB5E151CAF8E8B004B280A /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
-		89FB5E161CAF8E8B004B280A /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
-		89FB5E171CAF8E8B004B280A /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		89FB5E181CAF8E8B004B280A /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
-		89FB5E191CAF8E8B004B280A /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
-		89FB5E1A1CAF8E8B004B280A /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
-		89FB5E1B1CAF8E8B004B280A /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
-		89FB5E1C1CAF8E8B004B280A /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
-		89FB5E1D1CAF8E8B004B280A /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		89FB5E1E1CB07ADC004B280A /* Advertiser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Advertiser.storyboard; sourceTree = "<group>"; };
+		89FB5E201CB07B37004B280A /* Client.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Client.storyboard; sourceTree = "<group>"; };
+		89FB5E241CB07C83004B280A /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,14 +105,16 @@
 		89FB5DE11CAF8BC7004B280A /* Mesh */ = {
 			isa = PBXGroup;
 			children = (
+				89FB5E241CB07C83004B280A /* Fonts */,
 				89FB5DE21CAF8BC7004B280A /* AppDelegate.swift */,
 				89FB5DE41CAF8BC7004B280A /* ViewController.swift */,
 				89FB5DE61CAF8BC7004B280A /* Main.storyboard */,
+				89FB5E201CB07B37004B280A /* Client.storyboard */,
+				89FB5E1E1CB07ADC004B280A /* Advertiser.storyboard */,
 				89FB5DEC1CAF8BC7004B280A /* Assets.xcassets */,
 				89FB5DEE1CAF8BC7004B280A /* LaunchScreen.storyboard */,
 				89FB5DF11CAF8BC7004B280A /* Info.plist */,
 				89FB5DE91CAF8BC7004B280A /* Mesh.xcdatamodeld */,
-				89FB5E131CAF8E7B004B280A /* Resources */,
 			);
 			path = Mesh;
 			sourceTree = "<group>";
@@ -137,23 +135,6 @@
 				89FB5E071CAF8BC8004B280A /* Info.plist */,
 			);
 			path = MeshUITests;
-			sourceTree = "<group>";
-		};
-		89FB5E131CAF8E7B004B280A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				89FB5E141CAF8E8B004B280A /* OpenSans-Bold.ttf */,
-				89FB5E151CAF8E8B004B280A /* OpenSans-BoldItalic.ttf */,
-				89FB5E161CAF8E8B004B280A /* OpenSans-ExtraBold.ttf */,
-				89FB5E171CAF8E8B004B280A /* OpenSans-ExtraBoldItalic.ttf */,
-				89FB5E181CAF8E8B004B280A /* OpenSans-Italic.ttf */,
-				89FB5E191CAF8E8B004B280A /* OpenSans-Light.ttf */,
-				89FB5E1A1CAF8E8B004B280A /* OpenSans-LightItalic.ttf */,
-				89FB5E1B1CAF8E8B004B280A /* OpenSans-Regular.ttf */,
-				89FB5E1C1CAF8E8B004B280A /* OpenSans-Semibold.ttf */,
-				89FB5E1D1CAF8E8B004B280A /* OpenSans-SemiboldItalic.ttf */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,7 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				89FB5DF01CAF8BC7004B280A /* LaunchScreen.storyboard in Resources */,
+				89FB5E1F1CB07ADC004B280A /* Advertiser.storyboard in Resources */,
 				89FB5DED1CAF8BC7004B280A /* Assets.xcassets in Resources */,
+				89FB5E251CB07C83004B280A /* Fonts in Resources */,
+				89FB5E211CB07B37004B280A /* Client.storyboard in Resources */,
 				89FB5DE81CAF8BC7004B280A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +426,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chris.2amp.meshapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -454,6 +439,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chris.2amp.meshapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

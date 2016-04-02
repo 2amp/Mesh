@@ -1,58 +1,65 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HrK-C2-0vL">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="ppW-gQ-q7Q">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mesh" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HrK-C2-0vL" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="i8R-lE-jY9"/>
+                        <viewControllerLayoutGuide type="bottom" id="J8f-pH-7CC"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="L1N-RB-ak9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhB-L6-BrU">
-                                <rect key="frame" x="97" y="169" width="406" height="130"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="OUy-ei-fac"/>
-                                    <constraint firstAttribute="width" constant="406" id="W2x-Dm-Fal"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="di1-pN-YBq">
-                                <rect key="frame" x="150" y="442" width="301" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="301" id="otV-0O-aCF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egu-sf-0ul">
+                                <rect key="frame" x="265" y="156" width="71" height="30"/>
+                                <state key="normal" title="Advertiser"/>
+                                <connections>
+                                    <segue destination="d3Y-7Q-QPO" kind="show" id="N3R-Dx-cGy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvv-JY-Cez">
+                                <rect key="frame" x="280" y="272" width="40" height="30"/>
+                                <state key="normal" title="Client"/>
+                                <connections>
+                                    <segue destination="gBf-e6-Ji5" kind="show" id="Ora-yT-qcd"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="di1-pN-YBq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HzD-7q-GU3"/>
-                            <constraint firstItem="di1-pN-YBq" firstAttribute="top" secondItem="AhB-L6-BrU" secondAttribute="bottom" constant="143" id="bsU-5W-l5B"/>
-                            <constraint firstItem="AhB-L6-BrU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="du0-DD-pz6"/>
-                            <constraint firstItem="AhB-L6-BrU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="149" id="dye-Tg-hY2"/>
+                            <constraint firstItem="Vvv-JY-Cez" firstAttribute="centerX" secondItem="L1N-RB-ak9" secondAttribute="centerX" id="9ar-rN-9Fk"/>
+                            <constraint firstItem="egu-sf-0ul" firstAttribute="centerX" secondItem="L1N-RB-ak9" secondAttribute="centerX" id="Z8J-cH-cY3"/>
+                            <constraint firstItem="egu-sf-0ul" firstAttribute="top" secondItem="i8R-lE-jY9" secondAttribute="bottom" constant="136" id="buV-bS-tm1"/>
+                            <constraint firstItem="Vvv-JY-Cez" firstAttribute="top" secondItem="egu-sf-0ul" secondAttribute="bottom" constant="86" id="qwe-yB-Elf"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="lblBeaconDetails" destination="AhB-L6-BrU" id="qdv-mp-phP"/>
-                        <outlet property="lblBeaconReport" destination="di1-pN-YBq" id="Xa6-im-Sbs"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="COd-pv-FCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="294" y="446"/>
+            <point key="canvasLocation" x="54" y="511"/>
+        </scene>
+        <!--Client-->
+        <scene sceneID="vV6-br-7ej">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Client" id="gBf-e6-Ji5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UNG-5k-38i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="366.5" y="860"/>
+        </scene>
+        <!--Advertiser-->
+        <scene sceneID="O7J-ha-T2s">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Advertiser" id="d3Y-7Q-QPO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dO3-yY-aUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="467.5" y="584"/>
         </scene>
     </scenes>
 </document>

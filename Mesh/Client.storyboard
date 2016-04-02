@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fNO-9P-u5W">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="GW1-fJ-cQw">
+            <objects>
+                <viewController id="fNO-9P-u5W" customClass="ViewController" customModule="Mesh" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EhI-cO-5nW"/>
+                        <viewControllerLayoutGuide type="bottom" id="MJL-1p-awB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pc7-bG-3bZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l54-jB-IBV">
+                                <rect key="frame" x="97" y="169" width="406" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="Cay-ZN-Psf"/>
+                                    <constraint firstAttribute="width" constant="406" id="swF-jt-cxs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ow-pT-eF3">
+                                <rect key="frame" x="150" y="442" width="301" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="301" id="rd9-PR-Nc9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l54-jB-IBV" firstAttribute="top" secondItem="EhI-cO-5nW" secondAttribute="bottom" constant="149" id="4FD-qz-Zyg"/>
+                            <constraint firstItem="l54-jB-IBV" firstAttribute="centerX" secondItem="Pc7-bG-3bZ" secondAttribute="centerX" id="94s-BH-i0I"/>
+                            <constraint firstItem="8ow-pT-eF3" firstAttribute="top" secondItem="l54-jB-IBV" secondAttribute="bottom" constant="143" id="T5U-0s-zv4"/>
+                            <constraint firstItem="8ow-pT-eF3" firstAttribute="centerX" secondItem="Pc7-bG-3bZ" secondAttribute="centerX" id="zD5-AP-rNq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblBeaconDetails" destination="l54-jB-IBV" id="dbc-hu-J4F"/>
+                        <outlet property="lblBeaconReport" destination="8ow-pT-eF3" id="bCO-8O-nKu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bvb-k3-LWz" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="427" y="438"/>
+        </scene>
+    </scenes>
+</document>
