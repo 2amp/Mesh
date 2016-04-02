@@ -8,16 +8,61 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+
+//        let uuid = NSUUID(UUIDString: "F34A1A1F-500F-48FB-AFAA-9584D641D7B1")!
+//        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, identifier: "com.2amp.mesh")
+//
+//        beaconRegion.notifyOnEntry = true
+//        beaconRegion.notifyOnExit = true
+
+//        locationManager.startRangingBeaconsInRegion(beaconRegion)
+
+        let notification = UILocalNotification()
+        notification.alertBody = "App was woken up"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
         return true
+    }
+
+    func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
+        let notification = UILocalNotification()
+        switch state {
+        case .Inside:
+            notification.alertBody = "You are inside region \(region.identifier)"
+        case .Outside:
+            notification.alertBody = "You are outside region \(region.identifier)"
+        case .Unknown:
+            notification.alertBody = "Unknown \(region.identifier)"
+        }
+        notification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+    }
+
+    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        let notification = UILocalNotification()
+        notification.alertBody = "Beacon in range"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+    }
+
+    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
+        let notification = UILocalNotification()
+        notification.alertBody = "No beacons in range"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+
     }
 
     func applicationWillResignActive(application: UIApplication) {

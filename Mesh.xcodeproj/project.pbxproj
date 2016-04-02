@@ -225,6 +225,11 @@
 					89FB5DDE1CAF8BC7004B280A = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = R5H827C655;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					89FB5DF51CAF8BC8004B280A = {
 						CreatedOnToolsVersion = 7.3;
@@ -434,9 +439,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.2amp.Mesh;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chris.2amp.meshapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -445,9 +451,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.2amp.Mesh;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chris.2amp.meshapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -517,6 +524,7 @@
 				89FB5E0C1CAF8BC8004B280A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		89FB5E0D1CAF8BC8004B280A /* Build configuration list for PBXNativeTarget "MeshTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +533,7 @@
 				89FB5E0F1CAF8BC8004B280A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		89FB5E101CAF8BC8004B280A /* Build configuration list for PBXNativeTarget "MeshUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +542,7 @@
 				89FB5E121CAF8BC8004B280A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
