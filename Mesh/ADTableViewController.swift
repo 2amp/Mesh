@@ -32,58 +32,14 @@ class ADTableViewController: UITableViewController {
         }
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath)
-        
-        let nameLbl = cell.viewWithTag(100) as! UILabel
-        let emailLbl = cell.viewWithTag(101) as! UILabel
-        let affLbl = cell.viewWithTag(102) as! UILabel
-        let phoneLbl = cell.viewWithTag(103) as! UILabel
-
-        print(data[indexPath.row].allKeys)
-        nameLbl.text = data[indexPath.row]["name"] as? String
-        emailLbl.text = data[indexPath.row]["email"] as? String
-        affLbl.text = data[indexPath.row]["affiliation"] as? String
-        phoneLbl.text = data[indexPath.row]["phone"] as? String
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath) as! UITableViewCell
+        cell.textLabel?.text = data[indexPath.row]
         return cell
-    }
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.beginUpdates()
-        if let idx = expandedIndex {
-            if indexPath.row == idx {
-                expandedIndex = nil
-            } else {
-                expandedIndex = indexPath.row
-            }
-        } else {
-            expandedIndex = indexPath.row
-        }
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        tableView.endUpdates()
-    }
-
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if let idx = expandedIndex {
-            if indexPath.row == idx {
-                return 200
-            }
-        }
-        return 100
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 }
