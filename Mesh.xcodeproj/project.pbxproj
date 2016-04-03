@@ -260,7 +260,7 @@
 				TargetAttributes = {
 					89FB5DDE1CAF8BC7004B280A = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = SSH7835D9P;
+						DevelopmentTeam = R5H827C655;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -535,7 +535,7 @@
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.2amp.meshapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chris.2amp.meshapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -549,7 +549,7 @@
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.2amp.meshapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chris.2amp.meshapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -161,6 +161,8 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
                         "major": major,
                         "minor": minor
                     ])
+                let profileMajor = major
+                let profileMinor = minor
                 profile.saveInBackgroundWithBlock({ (success, error) in
                     self.saveAIV.stopAnimating()
                     self.saveBtn.setTitle("Save", forState: .Normal)
@@ -169,9 +171,24 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
                         return
                     }
 
+                    let mmEntry = PFObject(className: "MMtoADId",
+                        dictionary: [
+                            "major": profileMajor,
+                            "minor": profileMinor,
+                            "adid": profile.objectId!
+                        ])
+                    mmEntry.saveInBackgroundWithBlock({ (success, error) in
+                        print("success: \(success)")
+                        print(error)
+                    })
+
                     self.info = profile
 
                     let toView = self.tabBarController!.viewControllers![0].view
+                    let bvc = self.tabBarController!.viewControllers![0] as! BroadcastViewController
+                    bvc.majorLbl.text = "Major: \(profileMajor)"
+                    bvc.minorLbl.text = "Major: \(profileMinor)"
+
                     self.defaults.setBool(true, forKey: "isSet")
                     self.defaults.setValue(profile.objectId!, forKey: "objectId")
                     UIView.transitionFromView(self.view, toView: toView, duration: 0.5, options: .TransitionFlipFromRight, completion: {

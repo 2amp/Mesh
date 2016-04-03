@@ -8,15 +8,18 @@
 
 import UIKit
 import CoreLocation
+import Parse
 
 class ReceiveViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var lblBeaconReport: UILabel!
     @IBOutlet weak var lblBeaconDetails: UILabel!
+    @IBOutlet var lblAdDetails: UILabel!
 
     let locationManager = CLLocationManager()
     var beaconRegion: CLBeaconRegion!
     var lastFoundBeacon: CLBeacon = CLBeacon()
     var lastProximity: CLProximity = CLProximity.Unknown
+    var lastAdvertiserMM: (major: Int, minor: Int) = (0, 0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +76,21 @@ class ReceiveViewController: UIViewController, CLLocationManagerDelegate {
             if closestBeacon != lastFoundBeacon || lastProximity != closestBeacon.proximity  {
                 lastFoundBeacon = closestBeacon
                 lastProximity = closestBeacon.proximity
+
+                if lastAdvertiserMM.major != lastFoundBeacon.major.integerValue || lastAdvertiserMM.minor != lastFoundBeacon.minor.integerValue {
+                    lastAdvertiserMM.major = lastFoundBeacon.major.integerValue
+                    lastAdvertiserMM.minor = lastFoundBeacon.minor.integerValue
+                    let query = PFQuery(className: "MMtoADId").whereKey("major", equalTo: lastAdvertiserMM.major).whereKey("minor", equalTo: lastAdvertiserMM.minor)
+                    query.findObjectsInBackgroundWithBlock({ (result, error) in
+                        let adid = result![0]["adid"] as! String
+                        let adQuery = PFQuery(className: "ADProfile").whereKey("objectId", equalTo: adid)
+                        adQuery.findObjectsInBackgroundWithBlock({ (result, error) in
+                            let ad = result![0]
+                            let name = ad["name"] as! String
+                            self.lblAdDetails.text = "AD Details\nName: \(name)"
+                        })
+                    })
+                }
 
                 var proximityMessage: String!
                 switch lastFoundBeacon.proximity {
