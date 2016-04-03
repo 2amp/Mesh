@@ -101,12 +101,19 @@
                             </button>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="soh-k5-agM">
                                 <rect key="frame" x="233" y="58" width="135" height="135"/>
-                                <color key="backgroundColor" red="0.95285570580000001" green="0.94523028229999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="135" id="IxW-pP-PmZ"/>
                                     <constraint firstAttribute="height" constant="135" id="waX-wn-IN2"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9c7-ak-bTf">
+                                <rect key="frame" x="371" y="502" width="41" height="30"/>
+                                <state key="normal" title="NUKE"/>
+                                <connections>
+                                    <action selector="Nuke:" destination="kvN-sq-kD5" eventType="touchUpInside" id="rzB-hv-Ebe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -126,8 +133,10 @@
                             <constraint firstItem="N5w-Kf-tMD" firstAttribute="top" secondItem="soh-k5-agM" secondAttribute="bottom" constant="-135" id="Yat-lS-XGI"/>
                             <constraint firstItem="NVC-5C-Ot6" firstAttribute="centerX" secondItem="1O6-7H-elP" secondAttribute="centerX" id="ZOu-mp-IyV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sjW-p4-uP7" secondAttribute="trailing" id="bDJ-hC-Kva"/>
+                            <constraint firstItem="9c7-ak-bTf" firstAttribute="leading" secondItem="NVC-5C-Ot6" secondAttribute="trailing" constant="15" id="ctK-t7-6DN"/>
                             <constraint firstAttribute="leadingMargin" secondItem="jsU-EC-w8S" secondAttribute="leading" id="fgu-8X-Khr"/>
                             <constraint firstItem="N5w-Kf-tMD" firstAttribute="height" secondItem="soh-k5-agM" secondAttribute="height" id="fs8-td-7Tq"/>
+                            <constraint firstItem="brF-vf-TA7" firstAttribute="top" secondItem="9c7-ak-bTf" secondAttribute="bottom" constant="19" id="gOb-FY-MYp"/>
                             <constraint firstItem="X2a-hO-pxH" firstAttribute="top" secondItem="NVC-5C-Ot6" secondAttribute="bottom" constant="-36" id="hFa-Rg-p8e"/>
                             <constraint firstItem="mpc-E3-6HX" firstAttribute="centerX" secondItem="1O6-7H-elP" secondAttribute="centerX" id="iup-8c-14w"/>
                             <constraint firstItem="soh-k5-agM" firstAttribute="leading" secondItem="N5w-Kf-tMD" secondAttribute="trailing" constant="-135" id="o6F-95-piN"/>

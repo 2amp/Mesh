@@ -23,6 +23,22 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
     let imagePicker = UIImagePickerController()
     var info: PFObject?
 
+    
+    @IBAction func Nuke(sender: UIButton){
+        defaults.setObject(nil, forKey:"name")
+        nameTF.text = nil
+        defaults.setObject(nil, forKey:"affiliation")
+        affiliationTF.text = nil
+        defaults.setObject(nil, forKey: "phone")
+        phoneTF.text = nil
+        defaults.setObject(nil, forKey: "email")
+        emailTF.text = nil
+        defaults.setObject(nil, forKey:"pic")
+        ProfileImage.image = nil
+        profileButton.setTitle("Add Image", forState: .Normal)
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -70,8 +86,10 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
             emailTF.text = defaults.stringForKey("email")
             ProfileImage.image = UIImage(data: defaults.dataForKey("pic")!)
             ProfileImage.contentMode = .ScaleAspectFill
-        } else {
-            profileButton.setTitle("Press to Add Image", forState: .Normal)
+        }
+        else{
+            ProfileImage.image = nil
+            profileButton.setTitle("Add Image", forState: .Normal)
         }
     }
 
