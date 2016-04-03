@@ -38,8 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
         // Connect to Parse server
         let configuration = ParseClientConfiguration {
-            $0.applicationId = "YOUR_APP_ID"
-            $0.server = "http://YOUR_PARSE_SERVER:1337/parse"
+            $0.applicationId = "myAppId"
+            $0.server = "http://66.228.37.35:1337/parse"
         }
         Parse.initializeWithConfiguration(configuration)
 
