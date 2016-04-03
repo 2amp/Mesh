@@ -87,16 +87,6 @@
                                     <action selector="saveTapped" destination="kvN-sq-kD5" eventType="touchUpInside" id="b5Y-kd-ktd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9v-hU-q9S">
-                                <rect key="frame" x="362" y="185" width="30" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" red="0.95285570580000001" green="0.94523028229999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="loadImageButtonTapped:" destination="kvN-sq-kD5" eventType="touchUpInside" id="9el-At-EDZ"/>
-                                </connections>
-                            </button>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="soh-k5-agM">
                                 <rect key="frame" x="233" y="58" width="135" height="135"/>
                                 <color key="backgroundColor" red="0.95285570580000001" green="0.94523028229999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -108,6 +98,14 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="X2a-hO-pxH">
                                 <rect key="frame" x="290" y="507" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5w-Kf-tMD">
+                                <rect key="frame" x="264" y="111" width="72" height="30"/>
+                                <color key="backgroundColor" red="0.45973088199170908" green="1" blue="0.27938154288281969" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Add photo"/>
+                                <connections>
+                                    <action selector="loadImageButtonTapped:" destination="kvN-sq-kD5" eventType="touchUpInside" id="ebW-4s-jFX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -121,14 +119,14 @@
                             <constraint firstAttribute="leadingMargin" secondItem="1je-FX-VB5" secondAttribute="leading" id="RBM-Es-VP5"/>
                             <constraint firstItem="soh-k5-agM" firstAttribute="centerX" secondItem="1O6-7H-elP" secondAttribute="centerX" id="XMK-z9-fHb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jsU-EC-w8S" secondAttribute="trailing" id="Y0A-Xe-ftE"/>
+                            <constraint firstItem="N5w-Kf-tMD" firstAttribute="top" secondItem="soh-k5-agM" secondAttribute="bottom" constant="-82" id="Yat-lS-XGI"/>
                             <constraint firstItem="NVC-5C-Ot6" firstAttribute="centerX" secondItem="1O6-7H-elP" secondAttribute="centerX" id="ZOu-mp-IyV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sjW-p4-uP7" secondAttribute="trailing" id="bDJ-hC-Kva"/>
                             <constraint firstAttribute="leadingMargin" secondItem="jsU-EC-w8S" secondAttribute="leading" id="fgu-8X-Khr"/>
                             <constraint firstItem="X2a-hO-pxH" firstAttribute="top" secondItem="NVC-5C-Ot6" secondAttribute="bottom" constant="-36" id="hFa-Rg-p8e"/>
                             <constraint firstItem="mpc-E3-6HX" firstAttribute="centerX" secondItem="1O6-7H-elP" secondAttribute="centerX" id="iup-8c-14w"/>
-                            <constraint firstItem="q9v-hU-q9S" firstAttribute="top" secondItem="soh-k5-agM" secondAttribute="bottom" constant="-8" id="mc5-FG-yiA"/>
+                            <constraint firstItem="soh-k5-agM" firstAttribute="leading" secondItem="N5w-Kf-tMD" secondAttribute="trailing" constant="-103" id="o6F-95-piN"/>
                             <constraint firstItem="jsU-EC-w8S" firstAttribute="top" secondItem="BdO-DE-cVG" secondAttribute="bottom" constant="303" id="vTg-rq-44M"/>
-                            <constraint firstItem="q9v-hU-q9S" firstAttribute="leading" secondItem="soh-k5-agM" secondAttribute="trailing" constant="-6" id="vgB-bN-YmO"/>
                             <constraint firstItem="NVC-5C-Ot6" firstAttribute="leading" secondItem="X2a-hO-pxH" secondAttribute="trailing" constant="-65" id="z0q-aN-TVr"/>
                         </constraints>
                     </view>
@@ -139,6 +137,7 @@
                         <outlet property="emailTF" destination="1je-FX-VB5" id="tOD-b7-oij"/>
                         <outlet property="nameTF" destination="mpc-E3-6HX" id="oZ7-41-euT"/>
                         <outlet property="phoneTF" destination="jsU-EC-w8S" id="laM-Ye-h2q"/>
+                        <outlet property="profileButton" destination="N5w-Kf-tMD" id="7bg-1a-7b6"/>
                         <outlet property="saveAIV" destination="X2a-hO-pxH" id="zDA-21-hHS"/>
                         <outlet property="saveBtn" destination="NVC-5C-Ot6" id="WQQ-IL-jad"/>
                     </connections>

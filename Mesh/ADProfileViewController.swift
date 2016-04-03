@@ -17,6 +17,11 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet var emailTF: UITextField!
     @IBOutlet var saveAIV: UIActivityIndicatorView!
     @IBOutlet var saveBtn: UIButton!
+    @IBOutlet var profileButton: UIButton!
+
+
+
+    let defaults = NSUserDefaults.standardUserDefaults()
 
     let imagePicker = UIImagePickerController()
 
@@ -27,7 +32,7 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
         let swipeDownGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGestureRecognizer))
         swipeDownGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Down
         view.addGestureRecognizer(swipeDownGestureRecognizer)
-        
+
         // Let users pick an image
         imagePicker.delegate = self
         ProfileImage.layer.borderWidth = 1
@@ -55,6 +60,27 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
         bottomBorder.frame = CGRectMake(0.0, emailTF.frame.size.height - 1, emailTF.frame.size.width, 1.0);
         bottomBorder.backgroundColor = UIColor.blackColor().CGColor
         emailTF.layer.addSublayer(bottomBorder)
+
+        //Check if defaults
+        if defaults.stringForKey("name") != nil{
+            nameTF.text = defaults.stringForKey("name")
+        }
+        if defaults.stringForKey("affiliation") != nil{
+            affiliationTF.text = defaults.stringForKey("affiliation")
+        }
+        if defaults.stringForKey("phone") != nil{
+            phoneTF.text = defaults.stringForKey("phone")
+        }
+        if defaults.stringForKey("email") != nil{
+            emailTF.text = defaults.stringForKey("email")
+        }
+        if defaults.dataForKey("pic") != nil{
+            ProfileImage.image = UIImage(data: defaults.dataForKey("pic")!)
+            ProfileImage.contentMode = .ScaleAspectFill
+        }
+        else{
+            profileButton.setTitle("Press to Add Image", forState: .Normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,6 +113,18 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
             self.showAlert(title: "Error", message: "Please enter an email.")
             return
         }
+
+        defaults.setObject(name, forKey:"name")
+        defaults.setObject(affiliation, forKey:"affiliation")
+        defaults.setObject(phone, forKey: "phone")
+        defaults.setObject(email, forKey: "email")
+
+//        if ProfileImage != nil{
+//            let pic = UIImageJPEGRepresentation(ProfileImage.image!, 1.5)
+//            defaults.setObject(pic, forKey:"pic")
+//           profileButton.setTitle("", forState: .Normal)
+  //      }
+
         let profile = PFObject(className: "ADProfile",
                                dictionary: [
                                 "name": name,
@@ -112,27 +150,27 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
         saveAIV.startAnimating()
         saveBtn.setTitle("", forState: .Normal)
     }
-    
+
     @IBAction func loadImageButtonTapped(sender: UIButton) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
-        
+
         presentViewController(imagePicker, animated: true, completion: nil)
     }
-    
+
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             ProfileImage.contentMode = .ScaleAspectFill
             ProfileImage.image = pickedImage
         }
-        
+
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
     /*
     // MARK: - Navigation
 

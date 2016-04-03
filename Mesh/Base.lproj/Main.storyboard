@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HrK-C2-0vL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HrK-C2-0vL">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -21,14 +21,14 @@
                                 <rect key="frame" x="265" y="156" width="71" height="30"/>
                                 <state key="normal" title="Advertiser"/>
                                 <connections>
-                                    <segue destination="d3Y-7Q-QPO" kind="show" id="N3R-Dx-cGy"/>
+                                    <segue destination="d3Y-7Q-QPO" kind="show" identifier="advertiserSegue" id="N3R-Dx-cGy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvv-JY-Cez">
                                 <rect key="frame" x="280" y="272" width="40" height="30"/>
                                 <state key="normal" title="Client"/>
                                 <connections>
-                                    <segue destination="gBf-e6-Ji5" kind="show" id="Ora-yT-qcd"/>
+                                    <segue destination="gBf-e6-Ji5" kind="show" identifier="clientSegue" id="Ora-yT-qcd"/>
                                 </connections>
                             </button>
                         </subviews>
