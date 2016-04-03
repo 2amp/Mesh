@@ -64,7 +64,7 @@
                         <viewControllerLayoutGuide type="top" id="TfN-QX-gWn"/>
                         <viewControllerLayoutGuide type="bottom" id="cBv-6x-fce"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="i85-4v-y2B">
+                    <view key="view" contentMode="scaleToFill" id="i85-4v-y2B" userLabel="ProfileView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

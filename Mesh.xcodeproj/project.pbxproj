@@ -19,6 +19,7 @@
 		89FB5E211CB07B37004B280A /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FB5E201CB07B37004B280A /* Client.storyboard */; };
 		89FB5E251CB07C83004B280A /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 89FB5E241CB07C83004B280A /* Fonts */; };
 		89FB5E281CB08184004B280A /* BroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E271CB08184004B280A /* BroadcastViewController.swift */; };
+		AC97D1F51CB09C2C003A22A2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97D1F41CB09C2C003A22A2 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		89FB5E201CB07B37004B280A /* Client.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Client.storyboard; sourceTree = "<group>"; };
 		89FB5E241CB07C83004B280A /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		89FB5E271CB08184004B280A /* BroadcastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BroadcastViewController.swift; sourceTree = "<group>"; };
+		AC97D1F41CB09C2C003A22A2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				89FB5DE61CAF8BC7004B280A /* Main.storyboard */,
 				89FB5E201CB07B37004B280A /* Client.storyboard */,
 				89FB5E1E1CB07ADC004B280A /* Advertiser.storyboard */,
+				AC97D1F31CB09C11003A22A2 /* Client */,
 				89FB5E261CB08159004B280A /* Advertiser */,
 				89FB5DEC1CAF8BC7004B280A /* Assets.xcassets */,
 				89FB5DEE1CAF8BC7004B280A /* LaunchScreen.storyboard */,
@@ -146,6 +149,14 @@
 				89FB5E271CB08184004B280A /* BroadcastViewController.swift */,
 			);
 			name = Advertiser;
+			sourceTree = "<group>";
+		};
+		AC97D1F31CB09C11003A22A2 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				AC97D1F41CB09C2C003A22A2 /* ProfileViewController.swift */,
+			);
+			name = Client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +303,7 @@
 			files = (
 				89FB5DEB1CAF8BC7004B280A /* Mesh.xcdatamodeld in Sources */,
 				89FB5DE51CAF8BC7004B280A /* ViewController.swift in Sources */,
+				AC97D1F51CB09C2C003A22A2 /* ProfileViewController.swift in Sources */,
 				89FB5E281CB08184004B280A /* BroadcastViewController.swift in Sources */,
 				89FB5DE31CAF8BC7004B280A /* AppDelegate.swift in Sources */,
 			);
