@@ -9,14 +9,15 @@
 import UIKit
 import Parse
 
-class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var ProfileImage: UIImageView!
     @IBOutlet var nameTF: UITextField!
     @IBOutlet var affiliationTF: UITextField!
     @IBOutlet var phoneTF: UITextField!
     @IBOutlet var emailTF: UITextField!
-    
-    
+    @IBOutlet var saveAIV: UIActivityIndicatorView!
+    @IBOutlet var saveBtn: UIButton!
+
     let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
@@ -95,11 +96,21 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
             ])
         profile.saveInBackgroundWithBlock({
             (success: Bool, error: NSError?) in
+            self.saveAIV.stopAnimating()
+            self.saveBtn.setTitle("Save", forState: .Normal)
             guard success else {
                 self.showAlert(title: "Error", message: "Error saving profile.")
                 return
             }
+
+            let toView = self.tabBarController!.viewControllers![0].view
+            UIView.transitionFromView(self.view, toView: toView, duration: 0.3, options: .TransitionFlipFromRight, completion: {
+                finished in
+                self.tabBarController!.selectedIndex = 0
+            })
         })
+        saveAIV.startAnimating()
+        saveBtn.setTitle("", forState: .Normal)
     }
     
     @IBAction func loadImageButtonTapped(sender: UIButton) {
