@@ -37,6 +37,7 @@ class ReceiveViewController: UIViewController, CLLocationManagerDelegate {
 
         beaconRegion.notifyOnEntry = true
         beaconRegion.notifyOnExit = true
+        beaconRegion.notifyEntryStateOnDisplay = false
 
         locationManager.startRangingBeaconsInRegion(beaconRegion)
         locationManager.startMonitoringForRegion(beaconRegion)

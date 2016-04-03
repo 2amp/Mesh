@@ -16,29 +16,20 @@ import Bolts
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-
+    let locationManager = CLLocationManager()
+    let beaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "F34A1A1F-500F-48FB-AFAA-9584D641D7B1")!, identifier: "com.2amp.mesh")
+    let defaults = NSUserDefaults.standardUserDefaults()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let locationManager = CLLocationManager()
-        locationManager.delegate = self
 
 //        let domain = NSBundle.mainBundle().bundleIdentifier
 //        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(domain!)
 
-
-//        let uuid = NSUUID(UUIDString: "F34A1A1F-500F-48FB-AFAA-9584D641D7B1")!
-//        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, identifier: "com.2amp.mesh")
-//
-//        beaconRegion.notifyOnEntry = true
-//        beaconRegion.notifyOnExit = true
-
-//        locationManager.startRangingBeaconsInRegion(beaconRegion)
-
-        let notification = UILocalNotification()
-        notification.alertBody = "App was woken up"
-        notification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+        if let _ = launchOptions?[UIApplicationLaunchOptionsLocationKey] {
+            locationManager.delegate = self
+            locationManager.startRangingBeaconsInRegion(beaconRegion)
+        }
 
         // Connect to Parse server
         let configuration = ParseClientConfiguration {
@@ -62,6 +53,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         }
         notification.soundName = UILocalNotificationDefaultSoundName
         UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+    }
+
+    func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
+        let notification = UILocalNotification()
+        notification.alertBody = "didRangeBeacons"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+        let foundBeacons = beacons
+        if foundBeacons.count > 0 {
+            let closestBeacon = foundBeacons[0]
+            let query = PFQuery(className: "MMtoADId").whereKey("major", equalTo: closestBeacon.major).whereKey("minor", equalTo: closestBeacon.minor)
+            query.findObjectsInBackgroundWithBlock({ (result, error) in
+                let adid = result![0]["adid"] as! String
+                let adQuery = PFQuery(className: "ADProfile").whereKey("objectId", equalTo: adid)
+                adQuery.findObjectsInBackgroundWithBlock({ (result, error) in
+                    let ad = result![0]
+                    let conn = PFObject(className: "Connection",
+                        dictionary: [
+                            "advertiser": ad.objectId!,
+                            "client": self.defaults.stringForKey("objectIdCL")!
+                        ])
+                    conn.saveInBackgroundWithBlock({ (success, error) in
+                        if success {
+                            print("Logged a connection between AD: \(ad.objectId!) and CL: \(self.defaults.stringForKey("objectIdCL")!)")
+                        }
+                    })
+                })
+            })
+        }
+        locationManager.stopRangingBeaconsInRegion(beaconRegion)
     }
 
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
