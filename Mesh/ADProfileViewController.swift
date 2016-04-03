@@ -20,15 +20,11 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet var profileButton: UIButton!
 
     let defaults = NSUserDefaults.standardUserDefaults()
-
     let imagePicker = UIImagePickerController()
+    var info: PFObject?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        let domain = NSBundle.mainBundle().bundleIdentifier
-//        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(domain!)
-
         // Do any additional setup after loading the view.
         let swipeDownGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGestureRecognizer))
         swipeDownGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Down
@@ -63,23 +59,18 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
         emailTF.layer.addSublayer(bottomBorder)
 
         //Check if defaults
-        if defaults.stringForKey("name") != nil{
+        if defaults.boolForKey("isSet") {
+            PFQuery(className: "ADProfile").whereKey("objectId", equalTo: defaults.stringForKey("objectId")!).findObjectsInBackgroundWithBlock({
+                (objects: [PFObject]?, error: NSError?) in
+                self.info = objects![0]
+            })
             nameTF.text = defaults.stringForKey("name")
-        }
-        if defaults.stringForKey("affiliation") != nil{
             affiliationTF.text = defaults.stringForKey("affiliation")
-        }
-        if defaults.stringForKey("phone") != nil{
             phoneTF.text = defaults.stringForKey("phone")
-        }
-        if defaults.stringForKey("email") != nil{
             emailTF.text = defaults.stringForKey("email")
-        }
-        if defaults.dataForKey("pic") != nil{
             ProfileImage.image = UIImage(data: defaults.dataForKey("pic")!)
             ProfileImage.contentMode = .ScaleAspectFill
-        }
-        else{
+        } else {
             profileButton.setTitle("Press to Add Image", forState: .Normal)
         }
     }
@@ -120,63 +111,71 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
         defaults.setObject(phone, forKey: "phone")
         defaults.setObject(email, forKey: "email")
 
-//        if ProfileImage != nil{
-//            let pic = UIImageJPEGRepresentation(ProfileImage.image!, 1.5)
-//            defaults.setObject(pic, forKey:"pic")
-//           profileButton.setTitle("", forState: .Normal)
-  //      }
+        if ProfileImage != nil{
+            let pic = UIImageJPEGRepresentation(ProfileImage.image!, 1.5)
+            defaults.setObject(pic, forKey:"pic")
+            profileButton.setTitle("", forState: .Normal)
+        }
 
-        let profile = PFObject(className: "ADProfile",
-                               dictionary: [
-                                "name": name,
-                                "affiliation": affiliation,
-                                "phone": phone,
-                                "email": email
-            ])
-        profile.saveInBackgroundWithBlock({
-            (success: Bool, error: NSError?) in
-            self.saveAIV.stopAnimating()
-            self.saveBtn.setTitle("Save", forState: .Normal)
-            guard success else {
-                self.showAlert(title: "Error", message: "Error saving profile.")
-                return
-            }
-
-            let toView = self.tabBarController!.viewControllers![0].view
-
-            if !self.defaults.boolForKey("isSet") {
-                let query = PFQuery(className: "CurrentMajorMinor")
-                do {
-                    let cmm = try query.findObjects()[0]
-                    var major = cmm["major"] as! Int
-                    var minor = cmm["minor"] as! Int
-                    self.defaults.setInteger(major, forKey: "major")
-                    self.defaults.setInteger(minor, forKey: "minor")
-                    print("major: \(self.defaults.integerForKey("major")) minor: \(self.defaults.integerForKey("minor"))")
-                    let broadcastVC = self.tabBarController!.viewControllers![0] as! BroadcastViewController
-                    broadcastVC.major = major
-                    broadcastVC.minor = minor
-                    minor += 1
-                    if minor > 65535 {
-                        major += 1
-                        minor = 1
-                    }
-                    cmm["major"] = major
-                    cmm["minor"] = minor
-                    cmm.saveInBackground()
-                } catch let error as NSError {
-                    print(error)
-                }
-                self.defaults.setBool(true, forKey: "isSet")
-            }
-
-            UIView.transitionFromView(self.view, toView: toView, duration: 0.5, options: .TransitionFlipFromRight, completion: {
-                finished in
-                self.tabBarController!.selectedIndex = 0
+        if defaults.boolForKey("isSet") {
+            let newData = [
+                "name": name,
+                "affiliation": affiliation,
+                "phone": phone,
+                "email": email
+            ]
+            info!.setValuesForKeysWithDictionary(newData)
+            info!.saveInBackgroundWithBlock({ (succeeded, error) in
+                self.saveAIV.stopAnimating()
+                self.saveBtn.setTitle("Save", forState: .Normal)
             })
-        })
-        saveAIV.startAnimating()
-        saveBtn.setTitle("", forState: .Normal)
+        } else {
+            let query = PFQuery(className: "CurrentMajorMinor")
+            query.findObjectsInBackgroundWithBlock({ (result, error) in
+                let cmm = result![0]
+                var major = cmm["major"] as! Int
+                var minor = cmm["minor"] as! Int
+                self.defaults.setInteger(major, forKey: "major")
+                self.defaults.setInteger(minor, forKey: "minor")
+                minor += 1
+                if minor > 65535 {
+                    major += 1
+                    minor = 1
+                }
+                cmm["major"] = major
+                cmm["minor"] = minor
+                cmm.saveInBackground()
+                let profile = PFObject(className: "ADProfile",
+                    dictionary: [
+                        "name": name,
+                        "affiliation": affiliation,
+                        "phone": phone,
+                        "email": email,
+                        "major": major,
+                        "minor": minor
+                    ])
+                profile.saveInBackgroundWithBlock({ (success, error) in
+                    self.saveAIV.stopAnimating()
+                    self.saveBtn.setTitle("Save", forState: .Normal)
+                    guard success else {
+                        self.showAlert(title: "Error", message: "Error saving profile.")
+                        return
+                    }
+
+                    self.info = profile
+
+                    let toView = self.tabBarController!.viewControllers![0].view
+                    self.defaults.setBool(true, forKey: "isSet")
+                    self.defaults.setValue(profile.objectId!, forKey: "objectId")
+                    UIView.transitionFromView(self.view, toView: toView, duration: 0.5, options: .TransitionFlipFromRight, completion: {
+                        finished in
+                        self.tabBarController!.selectedIndex = 0
+                    })
+                })
+            })
+            saveAIV.startAnimating()
+            saveBtn.setTitle("", forState: .Normal)
+        }
     }
 
     @IBAction func loadImageButtonTapped(sender: UIButton) {

@@ -23,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         let locationManager = CLLocationManager()
         locationManager.delegate = self
 
+//        let domain = NSBundle.mainBundle().bundleIdentifier
+//        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(domain!)
+
+
 //        let uuid = NSUUID(UUIDString: "F34A1A1F-500F-48FB-AFAA-9584D641D7B1")!
 //        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, identifier: "com.2amp.mesh")
 //
