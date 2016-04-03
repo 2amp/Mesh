@@ -104,7 +104,7 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
             }
 
             let toView = self.tabBarController!.viewControllers![0].view
-            UIView.transitionFromView(self.view, toView: toView, duration: 0.3, options: .TransitionFlipFromRight, completion: {
+            UIView.transitionFromView(self.view, toView: toView, duration: 0.5, options: .TransitionFlipFromRight, completion: {
                 finished in
                 self.tabBarController!.selectedIndex = 0
             })
