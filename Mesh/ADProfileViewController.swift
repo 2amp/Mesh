@@ -25,18 +25,14 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
 
     
     @IBAction func Nuke(sender: UIButton){
-        defaults.setObject(nil, forKey:"name")
         nameTF.text = nil
-        defaults.setObject(nil, forKey:"affiliation")
         affiliationTF.text = nil
-        defaults.setObject(nil, forKey: "phone")
         phoneTF.text = nil
-        defaults.setObject(nil, forKey: "email")
         emailTF.text = nil
-        defaults.setObject(nil, forKey:"pic")
         ProfileImage.image = nil
-        profileButton.setTitle("Add Image", forState: .Normal)
-
+        let domain = NSBundle.mainBundle().bundleIdentifier
+        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(domain!)
+        info = nil
     }
     
     override func viewDidLoad() {
@@ -155,14 +151,7 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
                 var minor = cmm["minor"] as! Int
                 self.defaults.setInteger(major, forKey: "major")
                 self.defaults.setInteger(minor, forKey: "minor")
-                minor += 1
-                if minor > 65535 {
-                    major += 1
-                    minor = 1
-                }
-                cmm["major"] = major
-                cmm["minor"] = minor
-                cmm.saveInBackground()
+
                 let profile = PFObject(className: "ADProfile",
                     dictionary: [
                         "name": name,
@@ -190,6 +179,14 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
                         self.tabBarController!.selectedIndex = 0
                     })
                 })
+                minor += 1
+                if minor > 65535 {
+                    major += 1
+                    minor = 1
+                }
+                cmm["major"] = major
+                cmm["minor"] = minor
+                cmm.saveInBackground()
             })
             saveAIV.startAnimating()
             saveBtn.setTitle("", forState: .Normal)

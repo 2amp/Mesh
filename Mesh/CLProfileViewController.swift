@@ -20,23 +20,19 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet var profileButton: UIButton!
     
     let defaults = NSUserDefaults.standardUserDefaults()
-    
+    var info: PFObject?
     let imagePicker = UIImagePickerController()
     
     
     @IBAction func Nuke(sender: UIButton){
-        defaults.setObject(nil, forKey:"nameCL")
         nameTF.text = nil
-        defaults.setObject(nil, forKey:"affiliationCL")
         affiliationTF.text = nil
-        defaults.setObject(nil, forKey: "phoneCL")
         phoneTF.text = nil
-        defaults.setObject(nil, forKey: "emailCL")
         emailTF.text = nil
-        defaults.setObject(nil, forKey:"picCL")
         ProfileImage.image = nil
-        profileButton.setTitle("Add Image", forState: .Normal)
-        
+        let domain = NSBundle.mainBundle().bundleIdentifier
+        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(domain!)
+        info = nil
     }
     
     override func viewDidLoad() {
@@ -79,27 +75,21 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
         emailTF.layer.addSublayer(bottomBorder)
         
         //Check if defaults
-        if defaults.stringForKey("nameCL") != nil{
+        if defaults.boolForKey("isSetCL") {
+            PFQuery(className: "CLProfile").whereKey("objectId", equalTo: defaults.stringForKey("objectIdCL")!).findObjectsInBackgroundWithBlock({
+                (objects: [PFObject]?, error: NSError?) in
+                self.info = objects![0]
+            })
             nameTF.text = defaults.stringForKey("nameCL")
-        }
-        if defaults.stringForKey("affiliationCL") != nil{
             affiliationTF.text = defaults.stringForKey("affiliationCL")
-        }
-        if defaults.stringForKey("phoneCL") != nil{
             phoneTF.text = defaults.stringForKey("phoneCL")
-        }
-        if defaults.stringForKey("emailCL") != nil{
             emailTF.text = defaults.stringForKey("emailCL")
-        }
-        if defaults.dataForKey("picCL") != nil{
             ProfileImage.image = UIImage(data: defaults.dataForKey("picCL")!)
             ProfileImage.contentMode = .ScaleAspectFill
-            
         }
         else{
             ProfileImage.image = nil
             profileButton.setTitle("Add Image", forState: .Normal)
-            
         }
     }
     
@@ -145,57 +135,47 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
             profileButton.setTitle("", forState: .Normal)
         }
         
-        let profile = PFObject(className: "ADProfile",
-                               dictionary: [
-                                "name": name,
-                                "affiliation": affiliation,
-                                "phone": phone,
-                                "email": email
-            ])
-        profile.saveInBackgroundWithBlock({
-            (success: Bool, error: NSError?) in
-            self.saveAIV.stopAnimating()
-            self.saveBtn.setTitle("Save", forState: .Normal)
-            guard success else {
-                self.showAlert(title: "Error", message: "Error saving profile.")
-                return
-            }
-            
-            let toView = self.tabBarController!.viewControllers![0].view
-            
-            if !self.defaults.boolForKey("isSet") {
-                let query = PFQuery(className: "CurrentMajorMinor")
-                do {
-                    let cmm = try query.findObjects()[0]
-                    var major = cmm["major"] as! Int
-                    var minor = cmm["minor"] as! Int
-                    self.defaults.setInteger(major, forKey: "major")
-                    self.defaults.setInteger(minor, forKey: "minor")
-                    print("major: \(self.defaults.integerForKey("major")) minor: \(self.defaults.integerForKey("minor"))")
-                    let broadcastVC = self.tabBarController!.viewControllers![0] as! BroadcastViewController
-                    broadcastVC.major = major
-                    broadcastVC.minor = minor
-                    minor += 1
-                    if minor > 65535 {
-                        major += 1
-                        minor = 1
-                    }
-                    cmm["major"] = major
-                    cmm["minor"] = minor
-                    cmm.saveInBackground()
-                } catch let error as NSError {
-                    print(error)
-                }
-                self.defaults.setBool(true, forKey: "isSet")
-            }
-            
-            UIView.transitionFromView(self.view, toView: toView, duration: 0.5, options: .TransitionFlipFromRight, completion: {
-                finished in
-                self.tabBarController!.selectedIndex = 0
+        if defaults.boolForKey("isSetCL") {
+            let newData = [
+                "name": name,
+                "affiliation": affiliation,
+                "phone": phone,
+                "email": email
+            ]
+            info!.setValuesForKeysWithDictionary(newData)
+            info!.saveInBackgroundWithBlock({ (succeeded, error) in
+                self.saveAIV.stopAnimating()
+                self.saveBtn.setTitle("Save", forState: .Normal)
             })
-        })
-        saveAIV.startAnimating()
-        saveBtn.setTitle("", forState: .Normal)
+        } else {
+            let profile = PFObject(className: "CLProfile",
+                                   dictionary: [
+                                    "name": name,
+                                    "affiliation": affiliation,
+                                    "phone": phone,
+                                    "email": email
+                ])
+            profile.saveInBackgroundWithBlock({ (success, error) in
+                self.saveAIV.stopAnimating()
+                self.saveBtn.setTitle("Save", forState: .Normal)
+                guard success else {
+                    self.showAlert(title: "Error", message: "Error saving profile.")
+                    return
+                }
+
+                self.info = profile
+
+                let toView = self.tabBarController!.viewControllers![0].view
+                self.defaults.setBool(true, forKey: "isSetCL")
+                self.defaults.setValue(profile.objectId!, forKey: "objectIdCL")
+                UIView.transitionFromView(self.view, toView: toView, duration: 0.5, options: .TransitionFlipFromRight, completion: {
+                    finished in
+                    self.tabBarController!.selectedIndex = 0
+                })
+            })
+            saveAIV.startAnimating()
+            saveBtn.setTitle("", forState: .Normal)
+        }
     }
     
     @IBAction func loadImageButtonTapped(sender: UIButton) {
