@@ -19,14 +19,31 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet var saveBtn: UIButton!
     @IBOutlet var profileButton: UIButton!
     
-    
-    
     let defaults = NSUserDefaults.standardUserDefaults()
     
     let imagePicker = UIImagePickerController()
     
+    
+    @IBAction func Nuke(sender: UIButton){
+        defaults.setObject(nil, forKey:"nameCL")
+        nameTF.text = nil
+        defaults.setObject(nil, forKey:"affiliationCL")
+        affiliationTF.text = nil
+        defaults.setObject(nil, forKey: "phoneCL")
+        phoneTF.text = nil
+        defaults.setObject(nil, forKey: "emailCL")
+        emailTF.text = nil
+        defaults.setObject(nil, forKey:"picCL")
+        ProfileImage.image = nil
+        profileButton.setTitle("Add Image", forState: .Normal)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //        let domain = NSBundle.mainBundle().bundleIdentifier
+        //        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(domain!)
         
         // Do any additional setup after loading the view.
         let swipeDownGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGestureRecognizer))
@@ -62,24 +79,27 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
         emailTF.layer.addSublayer(bottomBorder)
         
         //Check if defaults
-        if defaults.stringForKey("nameCl") != nil{
-            nameTF.text = defaults.stringForKey("nameCl")
+        if defaults.stringForKey("nameCL") != nil{
+            nameTF.text = defaults.stringForKey("nameCL")
         }
-        if defaults.stringForKey("affiliationCl") != nil{
-            affiliationTF.text = defaults.stringForKey("affiliationCl")
+        if defaults.stringForKey("affiliationCL") != nil{
+            affiliationTF.text = defaults.stringForKey("affiliationCL")
         }
-        if defaults.stringForKey("phoneCl") != nil{
-            phoneTF.text = defaults.stringForKey("phoneCl")
+        if defaults.stringForKey("phoneCL") != nil{
+            phoneTF.text = defaults.stringForKey("phoneCL")
         }
-        if defaults.stringForKey("emailCl") != nil{
-            emailTF.text = defaults.stringForKey("emailCl")
+        if defaults.stringForKey("emailCL") != nil{
+            emailTF.text = defaults.stringForKey("emailCL")
         }
-        if defaults.dataForKey("picCl") != nil{
-            ProfileImage.image = UIImage(data: defaults.dataForKey("picCl")!)
+        if defaults.dataForKey("picCL") != nil{
+            ProfileImage.image = UIImage(data: defaults.dataForKey("picCL")!)
             ProfileImage.contentMode = .ScaleAspectFill
+            
         }
         else{
-            profileButton.setTitle("Press to Add Image", forState: .Normal)
+            ProfileImage.image = nil
+            profileButton.setTitle("Add Image", forState: .Normal)
+            
         }
     }
     
@@ -114,14 +134,14 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
             return
         }
         
-        defaults.setObject(name, forKey:"nameCl")
-        defaults.setObject(affiliation, forKey:"affiliationCl")
-        defaults.setObject(phone, forKey: "phoneCl")
-        defaults.setObject(email, forKey: "emailCl")
+        defaults.setObject(name, forKey:"nameCL")
+        defaults.setObject(affiliation, forKey:"affiliationCL")
+        defaults.setObject(phone, forKey: "phoneCL")
+        defaults.setObject(email, forKey: "emailCL")
         
         if ProfileImage != nil{
             let pic = UIImageJPEGRepresentation(ProfileImage.image!, 1.5)
-            defaults.setObject(pic, forKey:"picCl")
+            defaults.setObject(pic, forKey:"picCL")
             profileButton.setTitle("", forState: .Normal)
         }
         
@@ -142,6 +162,33 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
             }
             
             let toView = self.tabBarController!.viewControllers![0].view
+            
+            if !self.defaults.boolForKey("isSet") {
+                let query = PFQuery(className: "CurrentMajorMinor")
+                do {
+                    let cmm = try query.findObjects()[0]
+                    var major = cmm["major"] as! Int
+                    var minor = cmm["minor"] as! Int
+                    self.defaults.setInteger(major, forKey: "major")
+                    self.defaults.setInteger(minor, forKey: "minor")
+                    print("major: \(self.defaults.integerForKey("major")) minor: \(self.defaults.integerForKey("minor"))")
+                    let broadcastVC = self.tabBarController!.viewControllers![0] as! BroadcastViewController
+                    broadcastVC.major = major
+                    broadcastVC.minor = minor
+                    minor += 1
+                    if minor > 65535 {
+                        major += 1
+                        minor = 1
+                    }
+                    cmm["major"] = major
+                    cmm["minor"] = minor
+                    cmm.saveInBackground()
+                } catch let error as NSError {
+                    print(error)
+                }
+                self.defaults.setBool(true, forKey: "isSet")
+            }
+            
             UIView.transitionFromView(self.view, toView: toView, duration: 0.5, options: .TransitionFlipFromRight, completion: {
                 finished in
                 self.tabBarController!.selectedIndex = 0

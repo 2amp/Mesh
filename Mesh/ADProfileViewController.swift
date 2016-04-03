@@ -23,6 +23,22 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
 
     let imagePicker = UIImagePickerController()
 
+    
+    @IBAction func Nuke(sender: UIButton){
+        defaults.setObject(nil, forKey:"name")
+        nameTF.text = nil
+        defaults.setObject(nil, forKey:"affiliation")
+        affiliationTF.text = nil
+        defaults.setObject(nil, forKey: "phone")
+        phoneTF.text = nil
+        defaults.setObject(nil, forKey: "email")
+        emailTF.text = nil
+        defaults.setObject(nil, forKey:"pic")
+        ProfileImage.image = nil
+        profileButton.setTitle("Add Image", forState: .Normal)
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -78,9 +94,12 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
         if defaults.dataForKey("pic") != nil{
             ProfileImage.image = UIImage(data: defaults.dataForKey("pic")!)
             ProfileImage.contentMode = .ScaleAspectFill
+
         }
         else{
-            profileButton.setTitle("Press to Add Image", forState: .Normal)
+            ProfileImage.image = nil
+            profileButton.setTitle("Add Image", forState: .Normal)
+
         }
     }
 
@@ -120,11 +139,11 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
         defaults.setObject(phone, forKey: "phone")
         defaults.setObject(email, forKey: "email")
 
-//        if ProfileImage != nil{
-//            let pic = UIImageJPEGRepresentation(ProfileImage.image!, 1.5)
-//            defaults.setObject(pic, forKey:"pic")
-//           profileButton.setTitle("", forState: .Normal)
-  //      }
+        if ProfileImage != nil{
+            let pic = UIImageJPEGRepresentation(ProfileImage.image!, 1.5)
+            defaults.setObject(pic, forKey:"pic")
+           profileButton.setTitle("", forState: .Normal)
+        }
 
         let profile = PFObject(className: "ADProfile",
                                dictionary: [

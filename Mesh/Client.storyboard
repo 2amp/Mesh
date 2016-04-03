@@ -124,17 +124,6 @@
                                     <action selector="saveTapped" destination="cDF-H0-9OD" eventType="touchUpInside" id="y6S-b2-XEp"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Ve-xR-qwE">
-                                <rect key="frame" x="233" y="58" width="135" height="135"/>
-                                <color key="backgroundColor" red="0.95285570580000001" green="0.94523028229999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="135" id="G11-4k-vwx"/>
-                                    <constraint firstAttribute="height" constant="135" id="zT8-Wi-9Ze"/>
-                                </constraints>
-                            </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="V9Y-gx-wXb">
-                                <rect key="frame" x="290" y="507" width="20" height="20"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTg-pM-xGs">
                                 <rect key="frame" x="233" y="58" width="135" height="135"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -144,6 +133,17 @@
                                     <action selector="loadImageButtonTapped:" destination="cDF-H0-9OD" eventType="touchUpInside" id="IgN-B6-7Cx"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Ve-xR-qwE">
+                                <rect key="frame" x="233" y="58" width="135" height="135"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="G11-4k-vwx"/>
+                                    <constraint firstAttribute="height" constant="135" id="zT8-Wi-9Ze"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="V9Y-gx-wXb">
+                                <rect key="frame" x="290" y="507" width="20" height="20"/>
+                            </activityIndicatorView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Spu-iA-muh">
                                 <rect key="frame" x="20" y="323" width="560" height="30"/>
                                 <constraints>
@@ -152,6 +152,13 @@
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdo-CI-Y4X">
+                                <rect key="frame" x="373" y="502" width="41" height="30"/>
+                                <state key="normal" title="NUKE"/>
+                                <connections>
+                                    <action selector="Nuke:" destination="cDF-H0-9OD" eventType="touchUpInside" id="afw-rl-eoo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -159,6 +166,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="So8-2g-4dx" secondAttribute="leading" id="4oY-8N-0e0"/>
                             <constraint firstItem="bTg-pM-xGs" firstAttribute="top" secondItem="7Ve-xR-qwE" secondAttribute="bottom" constant="-135" id="D6s-5k-rjD"/>
                             <constraint firstItem="Bfa-XS-bCg" firstAttribute="top" secondItem="TfN-QX-gWn" secondAttribute="bottom" id="FYR-kp-JsC"/>
+                            <constraint firstItem="sdo-CI-Y4X" firstAttribute="leading" secondItem="l67-Ap-349" secondAttribute="trailing" constant="17" id="JaA-h6-Y8Y"/>
                             <constraint firstItem="Rz1-rz-4VA" firstAttribute="top" secondItem="TfN-QX-gWn" secondAttribute="bottom" constant="227" id="Ob2-9g-Cy7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rz1-rz-4VA" secondAttribute="trailing" id="SGR-px-c9S"/>
                             <constraint firstItem="Spu-iA-muh" firstAttribute="top" secondItem="TfN-QX-gWn" secondAttribute="bottom" constant="303" id="WbC-Tv-E2X"/>
@@ -172,6 +180,7 @@
                             <constraint firstItem="7Ve-xR-qwE" firstAttribute="centerX" secondItem="i85-4v-y2B" secondAttribute="centerX" id="mUl-Mk-4wx"/>
                             <constraint firstItem="bTg-pM-xGs" firstAttribute="height" secondItem="7Ve-xR-qwE" secondAttribute="height" id="oFw-ES-R9U"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Spu-iA-muh" secondAttribute="trailing" id="oMm-xa-fI3"/>
+                            <constraint firstItem="cBv-6x-fce" firstAttribute="top" secondItem="sdo-CI-Y4X" secondAttribute="bottom" constant="19" id="oV0-YP-AJn"/>
                             <constraint firstItem="bTg-pM-xGs" firstAttribute="width" secondItem="7Ve-xR-qwE" secondAttribute="width" id="pu6-4e-gkj"/>
                             <constraint firstItem="bTg-pM-xGs" firstAttribute="leading" secondItem="7Ve-xR-qwE" secondAttribute="trailing" constant="-135" id="tPN-dV-MOp"/>
                             <constraint firstItem="cBv-6x-fce" firstAttribute="top" secondItem="l67-Ap-349" secondAttribute="bottom" constant="8" id="trp-oo-l4T"/>
