@@ -34,6 +34,26 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
         ProfileImage.layer.borderColor = UIColor.blackColor().CGColor
         ProfileImage.layer.cornerRadius = ProfileImage.frame.height/2
         ProfileImage.clipsToBounds = true
+
+        var bottomBorder = CALayer()
+        bottomBorder.frame = CGRectMake(0.0, nameTF.frame.size.height - 1, nameTF.frame.size.width, 1.0);
+        bottomBorder.backgroundColor = UIColor.blackColor().CGColor
+        nameTF.layer.addSublayer(bottomBorder)
+
+        bottomBorder = CALayer()
+        bottomBorder.frame = CGRectMake(0.0, affiliationTF.frame.size.height - 1, affiliationTF.frame.size.width, 1.0);
+        bottomBorder.backgroundColor = UIColor.blackColor().CGColor
+        affiliationTF.layer.addSublayer(bottomBorder)
+
+        bottomBorder = CALayer()
+        bottomBorder.frame = CGRectMake(0.0, phoneTF.frame.size.height - 1, phoneTF.frame.size.width, 1.0);
+        bottomBorder.backgroundColor = UIColor.blackColor().CGColor
+        phoneTF.layer.addSublayer(bottomBorder)
+
+        bottomBorder = CALayer()
+        bottomBorder.frame = CGRectMake(0.0, emailTF.frame.size.height - 1, emailTF.frame.size.width, 1.0);
+        bottomBorder.backgroundColor = UIColor.blackColor().CGColor
+        emailTF.layer.addSublayer(bottomBorder)
     }
 
     override func didReceiveMemoryWarning() {
