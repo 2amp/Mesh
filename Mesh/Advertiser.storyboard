@@ -292,7 +292,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="142-ZM-QJU">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="AeO-gu-V0I" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="AeO-gu-V0I" customClass="ADTabBarController" customModule="Mesh" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Y7P-Ab-ark">
                         <autoresizingMask key="autoresizingMask"/>

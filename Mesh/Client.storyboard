@@ -206,7 +206,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="jUx-1A-YUe">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="K0O-KR-3PS" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="K0O-KR-3PS" customClass="CLTabBarController" customModule="Mesh" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="38F-9f-DHk"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="mjY-Hx-0Ns">
