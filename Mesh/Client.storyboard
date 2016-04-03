@@ -59,7 +59,7 @@
         <!--Profile-->
         <scene sceneID="xzv-ER-3Mq">
             <objects>
-                <viewController id="cDF-H0-9OD" sceneMemberID="viewController">
+                <viewController id="cDF-H0-9OD" customClass="CLProfileViewController" customModule="Mesh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TfN-QX-gWn"/>
                         <viewControllerLayoutGuide type="bottom" id="cBv-6x-fce"/>
@@ -68,13 +68,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f5W-wX-Cij">
-                                <rect key="frame" x="180" y="61" width="240" height="128"/>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f5W-wX-Cij">
+                                <rect key="frame" x="233" y="71" width="135" height="135"/>
+                                <color key="backgroundColor" red="0.95285570583714996" green="0.94523028234393047" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="135" id="UbA-yo-v51"/>
+                                    <constraint firstAttribute="width" constant="135" id="mpF-1Q-Dbb"/>
+                                </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JdF-fr-yW8">
+                                <rect key="frame" x="359" y="197" width="30" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.95285570580000001" green="0.94523028229999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loadImageButtonTapped:" destination="cDF-H0-9OD" eventType="touchUpInside" id="DaA-QR-orG"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UDP-od-EVR">
+                                <rect key="frame" x="61" y="28" width="182" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.54596919355157802" green="0.5681299876700403" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="JdF-fr-yW8" firstAttribute="leading" secondItem="f5W-wX-Cij" secondAttribute="trailing" constant="-9" id="AyG-Zx-Uzn"/>
+                            <constraint firstItem="f5W-wX-Cij" firstAttribute="top" secondItem="UDP-od-EVR" secondAttribute="bottom" constant="13" id="NNb-Wp-pdQ"/>
+                            <constraint firstItem="JdF-fr-yW8" firstAttribute="top" secondItem="f5W-wX-Cij" secondAttribute="bottom" constant="-9" id="lRv-o0-ACA"/>
+                            <constraint firstItem="f5W-wX-Cij" firstAttribute="leading" secondItem="UDP-od-EVR" secondAttribute="trailing" constant="-10" id="vNj-mr-vgr"/>
+                            <constraint firstItem="f5W-wX-Cij" firstAttribute="centerX" secondItem="i85-4v-y2B" secondAttribute="centerX" id="vzj-kk-WOy"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="iIi-zo-Ncd"/>
+                    <connections>
+                        <outlet property="ProfileImage" destination="f5W-wX-Cij" id="BMH-a7-pSG"/>
+                        <outlet property="btnAction" destination="JdF-fr-yW8" id="7jk-9o-erZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQf-mW-ahv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
