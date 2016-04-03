@@ -15,7 +15,11 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet var affiliationTF: UITextField!
     @IBOutlet var phoneTF: UITextField!
     @IBOutlet var emailTF: UITextField!
+    @IBOutlet var profileButton: UIButton!
     
+    
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     let imagePicker = UIImagePickerController()
 
@@ -34,6 +38,28 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
         ProfileImage.layer.borderColor = UIColor.blackColor().CGColor
         ProfileImage.layer.cornerRadius = ProfileImage.frame.height/2
         ProfileImage.clipsToBounds = true
+        
+        //Check if defaults
+        if defaults.stringForKey("name") != nil{
+            nameTF.text = defaults.stringForKey("name")
+        }
+        if defaults.stringForKey("affiliation") != nil{
+            affiliationTF.text = defaults.stringForKey("affiliation")
+        }
+        if defaults.stringForKey("phone") != nil{
+            phoneTF.text = defaults.stringForKey("phone")
+        }
+        if defaults.stringForKey("email") != nil{
+            emailTF.text = defaults.stringForKey("email")
+        }
+        if defaults.dataForKey("pic") != nil{
+            ProfileImage.image = UIImage(data: defaults.dataForKey("pic")!)
+            ProfileImage.contentMode = .ScaleAspectFill
+        }
+        else{
+            profileButton.setTitle("Press to Add Image", forState: .Normal)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,6 +92,18 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
             self.showAlert(title: "Error", message: "Please enter an email.")
             return
         }
+        
+        defaults.setObject(name, forKey:"name")
+        defaults.setObject(affiliation, forKey:"affiliation")
+        defaults.setObject(phone, forKey: "phone")
+        defaults.setObject(email, forKey: "email")
+        
+//        if ProfileImage != nil{
+//            let pic = UIImageJPEGRepresentation(ProfileImage.image!, 1.5)
+//            defaults.setObject(pic, forKey:"pic")
+//           profileButton.setTitle("", forState: .Normal)
+  //      }
+        
         let profile = PFObject(className: "ADProfile",
                                dictionary: [
                                 "name": name,
