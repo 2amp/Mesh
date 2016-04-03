@@ -187,5 +187,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         }
     }
 
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        if DBChooser.defaultChooser().handleOpenURL(url) {
+            return true
+        }
+        return false
+    }
+
 }
 

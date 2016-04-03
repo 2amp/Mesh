@@ -18,6 +18,7 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet var saveAIV: UIActivityIndicatorView!
     @IBOutlet var saveBtn: UIButton!
     @IBOutlet var profileButton: UIButton!
+    @IBOutlet var resumeName: UILabel!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     var info: PFObject?
@@ -33,6 +34,7 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
         let domain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(domain!)
         info = nil
+        resumeName.text = nil
     }
     
     override func viewDidLoad() {
@@ -86,10 +88,12 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
             emailTF.text = defaults.stringForKey("emailCL")
             ProfileImage.image = UIImage(data: defaults.dataForKey("picCL")!)
             ProfileImage.contentMode = .ScaleAspectFill
+            resumeName.text = defaults.stringForKey("resumeNameCL")
         }
         else{
             ProfileImage.image = nil
             profileButton.setTitle("Add Image", forState: .Normal)
+            resumeName.text = ""
         }
     }
     
@@ -128,6 +132,9 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
         defaults.setObject(affiliation, forKey:"affiliationCL")
         defaults.setObject(phone, forKey: "phoneCL")
         defaults.setObject(email, forKey: "emailCL")
+
+        saveAIV.startAnimating()
+        saveBtn.setTitle("", forState: .Normal)
         
         if ProfileImage != nil{
             let pic = UIImageJPEGRepresentation(ProfileImage.image!, 1.5)
@@ -143,10 +150,17 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
                 "email": email
             ]
             info!.setValuesForKeysWithDictionary(newData)
+            let profileImageData = UIImageJPEGRepresentation(self.ProfileImage.image!, 1.5)
+            let profileImageFile = PFFile(name: "uploaded_image.jpeg", data: profileImageData!)
+            info!["image"] = profileImageFile
+            if let file = defaults.objectForKey("resumeLinkCL") {
+                info!["resume"] = file
+            }
             info!.saveInBackgroundWithBlock({ (succeeded, error) in
                 self.saveAIV.stopAnimating()
                 self.saveBtn.setTitle("Save", forState: .Normal)
             })
+
         } else {
             let profile = PFObject(className: "CLProfile",
                                    dictionary: [
@@ -157,8 +171,11 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
                 ])
             
             let profileImageData = UIImageJPEGRepresentation(self.ProfileImage.image!, 1.5)
-            let profileImageFile = PFFile(name:"uploaded_image.jpeg", data: profileImageData!)
+            let profileImageFile = PFFile(name: "uploaded_image.jpeg", data: profileImageData!)
             profile["image"] = profileImageFile
+            if let file = defaults.objectForKey("resumeLinkCL") {
+                profile["resume"] = file
+            }
             
             profile.saveInBackgroundWithBlock({ (success, error) in
                 self.saveAIV.stopAnimating()
@@ -178,8 +195,6 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
                     self.tabBarController!.selectedIndex = 0
                 })
             })
-            saveAIV.startAnimating()
-            saveBtn.setTitle("", forState: .Normal)
         }
     }
     
@@ -201,6 +216,24 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    @IBAction func resumeTapped() {
+        DBChooser.defaultChooser().openChooserForLinkType(DBChooserLinkTypePreview, fromViewController: self) { (results) in
+            guard results.count > 0 else {
+                return
+            }
+            let file = results[0] as! DBChooserResult
+            self.resumeName.text = file.name
+            self.defaults.setObject(file.name, forKey: "resumeNameCL")
+            self.defaults.setObject(file.link.absoluteString, forKey: "resumeLinkCL")
+        }
+    }
+
+    @IBAction func resumeClear() {
+        self.resumeName.text = ""
+        self.defaults.setObject(nil, forKey: "resumeNameCL")
+        self.defaults.setObject(nil, forKey: "resumeLinkCL")
     }
     
     /*

@@ -19,6 +19,8 @@
             <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -179,21 +181,66 @@
                                     <action selector="Nuke:" destination="cDF-H0-9OD" eventType="touchUpInside" id="afw-rl-eoo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8c-1b-7TR">
+                                <rect key="frame" x="245" y="370" width="111" height="52"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="111" id="9q2-7a-rVZ"/>
+                                    <constraint firstAttribute="height" constant="52" id="hMz-w5-HFW"/>
+                                </constraints>
+                                <state key="normal" title="Upload resume">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resumeTapped" destination="cDF-H0-9OD" eventType="touchUpInside" id="1Ev-4Q-jRm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkB-K8-Uqa">
+                                <rect key="frame" x="107" y="430" width="387" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="242-0C-JCw"/>
+                                    <constraint firstAttribute="width" constant="387" id="Vva-bh-LaP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRb-zN-te5">
+                                <rect key="frame" x="531" y="430" width="49" height="32"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="uQF-Wj-d4J"/>
+                                    <constraint firstAttribute="width" constant="49" id="zeM-Rn-QbJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resumeClear" destination="cDF-H0-9OD" eventType="touchUpInside" id="B0M-x8-lPz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="Rz1-rz-4VA" secondAttribute="leading" id="09w-aU-2Fv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fkB-K8-Uqa" secondAttribute="trailing" constant="83" id="2C6-ce-Krz"/>
                             <constraint firstAttribute="leadingMargin" secondItem="So8-2g-4dx" secondAttribute="leading" id="4oY-8N-0e0"/>
+                            <constraint firstItem="fkB-K8-Uqa" firstAttribute="centerX" secondItem="i85-4v-y2B" secondAttribute="centerX" id="5bD-5K-J8P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZRb-zN-te5" secondAttribute="trailing" id="9MG-jW-Y38"/>
                             <constraint firstItem="bTg-pM-xGs" firstAttribute="top" secondItem="7Ve-xR-qwE" secondAttribute="bottom" constant="-135" id="D6s-5k-rjD"/>
                             <constraint firstItem="Bfa-XS-bCg" firstAttribute="top" secondItem="TfN-QX-gWn" secondAttribute="bottom" id="FYR-kp-JsC"/>
                             <constraint firstItem="sdo-CI-Y4X" firstAttribute="leading" secondItem="l67-Ap-349" secondAttribute="trailing" constant="17" id="JaA-h6-Y8Y"/>
+                            <constraint firstItem="ZRb-zN-te5" firstAttribute="top" secondItem="TfN-QX-gWn" secondAttribute="bottom" constant="410" id="N8s-yd-ouF"/>
                             <constraint firstItem="Rz1-rz-4VA" firstAttribute="top" secondItem="TfN-QX-gWn" secondAttribute="bottom" constant="227" id="Ob2-9g-Cy7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rz1-rz-4VA" secondAttribute="trailing" id="SGR-px-c9S"/>
                             <constraint firstItem="Spu-iA-muh" firstAttribute="top" secondItem="TfN-QX-gWn" secondAttribute="bottom" constant="303" id="WbC-Tv-E2X"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Spu-iA-muh" secondAttribute="leading" id="WtF-D7-o5V"/>
+                            <constraint firstItem="l8c-1b-7TR" firstAttribute="top" secondItem="Spu-iA-muh" secondAttribute="bottom" constant="17" id="WxT-1T-4qH"/>
                             <constraint firstItem="7Ve-xR-qwE" firstAttribute="top" secondItem="TfN-QX-gWn" secondAttribute="bottom" constant="38" id="aRS-9k-COO"/>
                             <constraint firstItem="l67-Ap-349" firstAttribute="leading" secondItem="V9Y-gx-wXb" secondAttribute="trailing" constant="-65" id="bku-zm-W82"/>
                             <constraint firstItem="Bfa-XS-bCg" firstAttribute="centerX" secondItem="i85-4v-y2B" secondAttribute="centerX" id="e1B-iM-k7i"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="fkB-K8-Uqa" secondAttribute="leading" id="f80-qY-IRV"/>
                             <constraint firstItem="V9Y-gx-wXb" firstAttribute="top" secondItem="l67-Ap-349" secondAttribute="bottom" constant="-36" id="fIM-Yx-luS"/>
                             <constraint firstItem="So8-2g-4dx" firstAttribute="top" secondItem="TfN-QX-gWn" secondAttribute="bottom" constant="265" id="ln5-UB-asl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="So8-2g-4dx" secondAttribute="trailing" id="mC2-dA-712"/>
@@ -201,11 +248,19 @@
                             <constraint firstItem="bTg-pM-xGs" firstAttribute="height" secondItem="7Ve-xR-qwE" secondAttribute="height" id="oFw-ES-R9U"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Spu-iA-muh" secondAttribute="trailing" id="oMm-xa-fI3"/>
                             <constraint firstItem="cBv-6x-fce" firstAttribute="top" secondItem="sdo-CI-Y4X" secondAttribute="bottom" constant="19" id="oV0-YP-AJn"/>
+                            <constraint firstItem="fkB-K8-Uqa" firstAttribute="top" secondItem="l8c-1b-7TR" secondAttribute="bottom" constant="8" id="pAz-3D-maf"/>
                             <constraint firstItem="bTg-pM-xGs" firstAttribute="width" secondItem="7Ve-xR-qwE" secondAttribute="width" id="pu6-4e-gkj"/>
                             <constraint firstItem="bTg-pM-xGs" firstAttribute="leading" secondItem="7Ve-xR-qwE" secondAttribute="trailing" constant="-135" id="tPN-dV-MOp"/>
+                            <constraint firstItem="l8c-1b-7TR" firstAttribute="centerX" secondItem="i85-4v-y2B" secondAttribute="centerX" id="toU-zH-rmc"/>
                             <constraint firstItem="cBv-6x-fce" firstAttribute="top" secondItem="l67-Ap-349" secondAttribute="bottom" constant="8" id="trp-oo-l4T"/>
                             <constraint firstItem="l67-Ap-349" firstAttribute="centerX" secondItem="i85-4v-y2B" secondAttribute="centerX" id="u3i-nY-b2E"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2C6-ce-Krz"/>
+                                <exclude reference="f80-qY-IRV"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="iIi-zo-Ncd"/>
                     <connections>
@@ -215,6 +270,7 @@
                         <outlet property="nameTF" destination="Bfa-XS-bCg" id="GuK-77-S7z"/>
                         <outlet property="phoneTF" destination="Spu-iA-muh" id="sB1-Cl-wgk"/>
                         <outlet property="profileButton" destination="bTg-pM-xGs" id="xu3-g6-gpo"/>
+                        <outlet property="resumeName" destination="fkB-K8-Uqa" id="rj0-zI-RQ4"/>
                         <outlet property="saveAIV" destination="V9Y-gx-wXb" id="dbf-tj-UJU"/>
                         <outlet property="saveBtn" destination="l67-Ap-349" id="1x7-l2-2H5"/>
                     </connections>

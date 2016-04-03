@@ -22,6 +22,8 @@
 		89FB5E2A1CB0A182004B280A /* ADProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E291CB0A182004B280A /* ADProfileViewController.swift */; };
 		89FB5E2C1CB0BBD3004B280A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E2B1CB0BBD3004B280A /* Utils.swift */; };
 		89FB5E2E1CB128BB004B280A /* CLTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E2D1CB128BB004B280A /* CLTableViewController.swift */; };
+		89FB5E321CB14712004B280A /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 89FB5E301CB14712004B280A /* DBChooser.bundle */; };
+		89FB5E331CB14712004B280A /* DBChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89FB5E311CB14712004B280A /* DBChooser.framework */; };
 		AC97D1F51CB09C2C003A22A2 /* CLProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97D1F41CB09C2C003A22A2 /* CLProfileViewController.swift */; };
 		ACEBECCF1CB0FF2C00A7E1C4 /* CLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEBECCE1CB0FF2C00A7E1C4 /* CLTabBarController.swift */; };
 		ACEBECD11CB103F800A7E1C4 /* ADTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEBECD01CB103F800A7E1C4 /* ADTabBarController.swift */; };
@@ -71,6 +73,9 @@
 		89FB5E291CB0A182004B280A /* ADProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADProfileViewController.swift; sourceTree = "<group>"; };
 		89FB5E2B1CB0BBD3004B280A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		89FB5E2D1CB128BB004B280A /* CLTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLTableViewController.swift; sourceTree = "<group>"; };
+		89FB5E2F1CB14549004B280A /* Mesh-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mesh-Bridging-Header.h"; sourceTree = "<group>"; };
+		89FB5E301CB14712004B280A /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
+		89FB5E311CB14712004B280A /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DBChooser.framework; sourceTree = "<group>"; };
 		AC97D1F41CB09C2C003A22A2 /* CLProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLProfileViewController.swift; sourceTree = "<group>"; };
 		ACEBECCE1CB0FF2C00A7E1C4 /* CLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLTabBarController.swift; sourceTree = "<group>"; };
 		ACEBECD01CB103F800A7E1C4 /* ADTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADTabBarController.swift; sourceTree = "<group>"; };
@@ -82,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89FB5E331CB14712004B280A /* DBChooser.framework in Frameworks */,
 				BA045FE55011BF2B17256B37 /* Pods_Mesh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,12 +157,15 @@
 				89FB5E201CB07B37004B280A /* Client.storyboard */,
 				89FB5E1E1CB07ADC004B280A /* Advertiser.storyboard */,
 				89FB5E2B1CB0BBD3004B280A /* Utils.swift */,
+				89FB5E2F1CB14549004B280A /* Mesh-Bridging-Header.h */,
 				AC97D1F31CB09C11003A22A2 /* Client */,
 				89FB5E261CB08159004B280A /* Advertiser */,
 				89FB5DEC1CAF8BC7004B280A /* Assets.xcassets */,
 				89FB5DEE1CAF8BC7004B280A /* LaunchScreen.storyboard */,
 				89FB5DF11CAF8BC7004B280A /* Info.plist */,
 				89FB5DE91CAF8BC7004B280A /* Mesh.xcdatamodeld */,
+				89FB5E301CB14712004B280A /* DBChooser.bundle */,
+				89FB5E311CB14712004B280A /* DBChooser.framework */,
 			);
 			path = Mesh;
 			sourceTree = "<group>";
@@ -316,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89FB5E321CB14712004B280A /* DBChooser.bundle in Resources */,
 				89FB5DF01CAF8BC7004B280A /* LaunchScreen.storyboard in Resources */,
 				89FB5E1F1CB07ADC004B280A /* Advertiser.storyboard in Resources */,
 				89FB5DED1CAF8BC7004B280A /* Assets.xcassets in Resources */,
@@ -480,6 +490,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -500,6 +511,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Mesh/Mesh-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -525,6 +537,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -538,6 +551,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Mesh/Mesh-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -549,6 +563,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mesh",
+				);
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
@@ -565,6 +583,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mesh",
+				);
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";

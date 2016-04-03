@@ -46,10 +46,10 @@ class BroadcastViewController: UIViewController, CBPeripheralManagerDelegate {
             minor = defaults.integerForKey("minor")
             print("major: \(major) minor: \(minor)")
             majorLbl.text = "Major: \(major)"
-            minorLbl.text = "Major: \(minor)"
+            minorLbl.text = "Minor: \(minor)"
         } else {
             majorLbl.text = "Major: ?"
-            minorLbl.text = "Major: ?"
+            minorLbl.text = "Minor: ?"
         }
 
 

@@ -74,13 +74,15 @@ class ADTableViewController: UITableViewController {
         let affLbl = cell.viewWithTag(102) as! UILabel
         let phoneLbl = cell.viewWithTag(103) as! UILabel
         let profPic = cell.viewWithTag(200) as! UIImageView
+        let resumeLbl = cell.viewWithTag(300) as! UILabel
 
         nameLbl.text = data[indexPath.row]["name"] as? String
         emailLbl.text = data[indexPath.row]["email"] as? String
         affLbl.text = data[indexPath.row]["affiliation"] as? String
         phoneLbl.text = data[indexPath.row]["phone"] as? String
         profPic.image = images[indexPath.row]
-        profPic.contentMode = .ScaleAspectFill
+        profPic.contentMode = .ScaleAspectFit
+        resumeLbl.text = data[indexPath.row]["resume"] as? String
 
         return cell
     }

@@ -81,7 +81,7 @@ class CLTableViewController: UITableViewController {
         affLbl.text = data[indexPath.row]["affiliation"] as? String
         phoneLbl.text = data[indexPath.row]["phone"] as? String
         profPic.image = images[indexPath.row]
-        profPic.contentMode = .ScaleAspectFill
+        profPic.contentMode = .ScaleAspectFit
 
         return cell
     }
@@ -114,5 +114,4 @@ class CLTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 }
