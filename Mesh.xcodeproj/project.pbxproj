@@ -21,8 +21,8 @@
 		89FB5E281CB08184004B280A /* BroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E271CB08184004B280A /* BroadcastViewController.swift */; };
 		89FB5E2A1CB0A182004B280A /* ADProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E291CB0A182004B280A /* ADProfileViewController.swift */; };
 		89FB5E2C1CB0BBD3004B280A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E2B1CB0BBD3004B280A /* Utils.swift */; };
-		AC97D1F51CB09C2C003A22A2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97D1F41CB09C2C003A22A2 /* ProfileViewController.swift */; };
 		BA045FE55011BF2B17256B37 /* Pods_Mesh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C35BE4560C30589782205D8 /* Pods_Mesh.framework */; };
+		AC97D1F51CB09C2C003A22A2 /* CLProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97D1F41CB09C2C003A22A2 /* CLProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +66,7 @@
 		89FB5E271CB08184004B280A /* BroadcastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BroadcastViewController.swift; sourceTree = "<group>"; };
 		89FB5E291CB0A182004B280A /* ADProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADProfileViewController.swift; sourceTree = "<group>"; };
 		89FB5E2B1CB0BBD3004B280A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		AC97D1F41CB09C2C003A22A2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		AC97D1F41CB09C2C003A22A2 /* CLProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +184,7 @@
 		AC97D1F31CB09C11003A22A2 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				AC97D1F41CB09C2C003A22A2 /* ProfileViewController.swift */,
+				AC97D1F41CB09C2C003A22A2 /* CLProfileViewController.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -385,7 +385,7 @@
 				89FB5DEB1CAF8BC7004B280A /* Mesh.xcdatamodeld in Sources */,
 				89FB5DE51CAF8BC7004B280A /* ViewController.swift in Sources */,
 				89FB5E2C1CB0BBD3004B280A /* Utils.swift in Sources */,
-				AC97D1F51CB09C2C003A22A2 /* ProfileViewController.swift in Sources */,
+				AC97D1F51CB09C2C003A22A2 /* CLProfileViewController.swift in Sources */,
 				89FB5E281CB08184004B280A /* BroadcastViewController.swift in Sources */,
 				89FB5DE31CAF8BC7004B280A /* AppDelegate.swift in Sources */,
 				89FB5E2A1CB0A182004B280A /* ADProfileViewController.swift in Sources */,
