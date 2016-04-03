@@ -124,7 +124,7 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
         defaults.setObject(affiliation, forKey:"affiliation")
         defaults.setObject(phone, forKey: "phone")
         defaults.setObject(email, forKey: "email")
-
+        
         if ProfileImage != nil{
             let pic = UIImageJPEGRepresentation(ProfileImage.image!, 1.5)
             defaults.setObject(pic, forKey:"pic")
@@ -159,10 +159,17 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
                         "phone": phone,
                         "email": email,
                         "major": major,
-                        "minor": minor
+                        "minor": minor,
                     ])
+                let profileImageData = UIImageJPEGRepresentation(self.ProfileImage.image!, 1.5)
+                let profileImageFile = PFFile(name:"uploaded_image.jpeg", data: profileImageData!)
+                
                 let profileMajor = major
                 let profileMinor = minor
+                
+                profile["image"] = profileImageFile
+
+                
                 profile.saveInBackgroundWithBlock({ (success, error) in
                     self.saveAIV.stopAnimating()
                     self.saveBtn.setTitle("Save", forState: .Normal)
@@ -177,10 +184,13 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
                             "minor": profileMinor,
                             "adid": profile.objectId!
                         ])
+                    
                     mmEntry.saveInBackgroundWithBlock({ (success, error) in
                         print("success: \(success)")
                         print(error)
                     })
+                    
+                   
 
                     self.info = profile
 
