@@ -19,14 +19,15 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet var saveBtn: UIButton!
     @IBOutlet var profileButton: UIButton!
 
-
-
     let defaults = NSUserDefaults.standardUserDefaults()
 
     let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+//        let domain = NSBundle.mainBundle().bundleIdentifier
+//        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(domain!)
 
         // Do any additional setup after loading the view.
         let swipeDownGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGestureRecognizer))
@@ -142,6 +143,33 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
             }
 
             let toView = self.tabBarController!.viewControllers![0].view
+
+            if !self.defaults.boolForKey("isSet") {
+                let query = PFQuery(className: "CurrentMajorMinor")
+                do {
+                    let cmm = try query.findObjects()[0]
+                    var major = cmm["major"] as! Int
+                    var minor = cmm["minor"] as! Int
+                    self.defaults.setInteger(major, forKey: "major")
+                    self.defaults.setInteger(minor, forKey: "minor")
+                    print("major: \(self.defaults.integerForKey("major")) minor: \(self.defaults.integerForKey("minor"))")
+                    let broadcastVC = self.tabBarController!.viewControllers![0] as! BroadcastViewController
+                    broadcastVC.major = major
+                    broadcastVC.minor = minor
+                    minor += 1
+                    if minor > 65535 {
+                        major += 1
+                        minor = 1
+                    }
+                    cmm["major"] = major
+                    cmm["minor"] = minor
+                    cmm.saveInBackground()
+                } catch let error as NSError {
+                    print(error)
+                }
+                self.defaults.setBool(true, forKey: "isSet")
+            }
+
             UIView.transitionFromView(self.view, toView: toView, duration: 0.5, options: .TransitionFlipFromRight, completion: {
                 finished in
                 self.tabBarController!.selectedIndex = 0

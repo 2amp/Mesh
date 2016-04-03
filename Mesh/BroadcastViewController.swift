@@ -14,8 +14,13 @@ class BroadcastViewController: UIViewController, CBPeripheralManagerDelegate {
     @IBOutlet var btnAction: UIButton!
     @IBOutlet var lblStatus: UILabel!
     @IBOutlet var lblBTStatus: UILabel!
-    @IBOutlet var txtMajor: UITextField!
-    @IBOutlet var txtMinor: UITextField!
+    @IBOutlet var majorLbl: UILabel!
+    @IBOutlet var minorLbl: UILabel!
+
+    var major = 1
+    var minor = 1
+
+    let defaults = NSUserDefaults.standardUserDefaults()
 
     let uuid = NSUUID(UUIDString: "F34A1A1F-500F-48FB-AFAA-9584D641D7B1")!
     var beaconRegion: CLBeaconRegion!
@@ -33,36 +38,37 @@ class BroadcastViewController: UIViewController, CBPeripheralManagerDelegate {
         view.addGestureRecognizer(swipeDownGestureRecognizer)
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        print("isSet: \(defaults.boolForKey("isSet"))")
+        if defaults.boolForKey("isSet") {
+            major = defaults.integerForKey("major")
+            minor = defaults.integerForKey("minor")
+            print("major: \(major) minor: \(minor)")
+        }
+
+        majorLbl.text = "Major: \(major)"
+        minorLbl.text = "Major: \(minor)"
+    }
+
     // MARK: Custom method implementation
 
     func handleSwipeGestureRecognizer(gestureRecognizer: UISwipeGestureRecognizer) {
-        txtMajor.resignFirstResponder()
-        txtMinor.resignFirstResponder()
+
     }
 
 
     // MARK: IBAction method implementation
 
     @IBAction func switchBroadcastingState(sender: AnyObject) {
-        if txtMajor.text == "" || txtMinor.text == "" {
-            return
-        }
-
-        if txtMajor.isFirstResponder() || txtMinor.isFirstResponder() {
-            return
-        }
         if !isBroadcasting {
             if bluetoothPeripheralManager.state == .PoweredOn {
-                let major = CLBeaconMajorValue(bigEndian: UInt16(Int(txtMajor.text!)!))
-                let minor = CLBeaconMinorValue(bigEndian: UInt16(Int(txtMinor.text!)!))
-                beaconRegion = CLBeaconRegion(proximityUUID: uuid, major: major, minor: minor, identifier: "com.2amp.mesh")
+                beaconRegion = CLBeaconRegion(proximityUUID: uuid, major: CLBeaconMajorValue(major), minor: CLBeaconMinorValue(minor), identifier: "com.2amp.mesh")
                 dataDictionary = beaconRegion.peripheralDataWithMeasuredPower(nil)
                 bluetoothPeripheralManager.startAdvertising(dataDictionary as? [String : AnyObject])
 
                 btnAction.setTitle("Stop", forState: .Normal)
                 lblStatus.text = "Broadcasting..."
-                txtMajor.enabled = false
-                txtMinor.enabled = false
                 isBroadcasting = true
             }
         } else {
@@ -70,9 +76,6 @@ class BroadcastViewController: UIViewController, CBPeripheralManagerDelegate {
 
             btnAction.setTitle("Start", forState: UIControlState.Normal)
             lblStatus.text = "Stopped"
-
-            txtMajor.enabled = true
-            txtMinor.enabled = true
 
             isBroadcasting = false
         }
