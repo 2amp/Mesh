@@ -20,6 +20,7 @@ class ReceiveViewController: UIViewController, CLLocationManagerDelegate {
     var lastFoundBeacon: CLBeacon = CLBeacon()
     var lastProximity: CLProximity = CLProximity.Unknown
     var lastAdvertiserMM: (major: Int, minor: Int) = (0, 0)
+    let defaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +78,8 @@ class ReceiveViewController: UIViewController, CLLocationManagerDelegate {
                 lastFoundBeacon = closestBeacon
                 lastProximity = closestBeacon.proximity
 
-//                if lastAdvertiserMM.major != lastFoundBeacon.major.integerValue || lastAdvertiserMM.minor != lastFoundBeacon.minor.integerValue {
+                if lastAdvertiserMM.major != lastFoundBeacon.major.integerValue || lastAdvertiserMM.minor != lastFoundBeacon.minor.integerValue {
+
                     lastAdvertiserMM.major = lastFoundBeacon.major.integerValue
                     lastAdvertiserMM.minor = lastFoundBeacon.minor.integerValue
                     let query = PFQuery(className: "MMtoADId").whereKey("major", equalTo: lastAdvertiserMM.major).whereKey("minor", equalTo: lastAdvertiserMM.minor)
@@ -87,10 +89,23 @@ class ReceiveViewController: UIViewController, CLLocationManagerDelegate {
                         adQuery.findObjectsInBackgroundWithBlock({ (result, error) in
                             let ad = result![0]
                             let name = ad["name"] as! String
-                            self.lblAdDetails.text = "AD Details\nName: \(name)"
+                            let aff = ad["affiliation"] as! String
+                            let conn = PFObject(className: "Connection",
+                                dictionary: [
+                                    "advertiser": ad.objectId!,
+                                    "client": self.defaults.stringForKey("objectIdCL")!
+                                ])
+                            conn.saveInBackgroundWithBlock({ (success, error) in
+                                if success {
+                                    print("Logged a connection between AD: \(ad.objectId!) and CL: \(self.defaults.stringForKey("objectIdCL")!)")
+                                }
+                            })
+                            self.lblAdDetails.text = "AD Details\nName: \(name)\nAffiliation: \(aff)"
                         })
                     })
-//                }
+
+
+                }
 
                 var proximityMessage: String!
                 switch lastFoundBeacon.proximity {
@@ -110,7 +125,6 @@ class ReceiveViewController: UIViewController, CLLocationManagerDelegate {
                 shouldHideBeaconDetails = false
 
                 lblBeaconDetails.text = "Beacon Details:\nMajor = " + String(closestBeacon.major.intValue) + "\nMinor = " + String(closestBeacon.minor.intValue) + "\nDistance: " + proximityMessage
-                print(lblBeaconDetails.text)
             }
         }
         
