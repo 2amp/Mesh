@@ -18,8 +18,17 @@ class ADTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        refresh()
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
+    }
+
+    func refresh() {
         let query = PFQuery(className: "Connection").whereKey("advertiser", equalTo: defaults.stringForKey("objectId")!)
         query.findObjectsInBackgroundWithBlock { (result, error) in
+            if result!.isEmpty {
+                self.refreshControl?.endRefreshing()
+            }
             var queries: [PFQuery] = []
             for obj in result! {
                 print(obj.objectId!)
@@ -29,15 +38,22 @@ class ADTableViewController: UITableViewController {
                 print(clients!.count)
                 self.data = clients!
                 self.images = [UIImage?](count: self.data.count, repeatedValue: nil)
+                var n = 0
+                if n == self.data.count {
+                    self.refreshControl?.endRefreshing()
+                }
                 for (index, client) in clients!.enumerate() {
                     let file = client["image"] as! PFFile
                     file.getDataInBackgroundWithBlock({ (data, error) in
                         print(data)
                         self.images[index] = UIImage(data: data!)
+                        n += 1
+                        if n == self.data.count {
+                            self.refreshControl?.endRefreshing()
+                        }
                         self.tableView.reloadData()
                     })
                 }
-                self.tableView.reloadData()
             })
         }
     }

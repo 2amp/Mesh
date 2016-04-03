@@ -18,26 +18,43 @@ class CLTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        refresh()
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
+    }
+
+    func refresh() {
         let query = PFQuery(className: "Connection").whereKey("client", equalTo: defaults.stringForKey("objectIdCL")!)
         query.findObjectsInBackgroundWithBlock { (result, error) in
             var queries: [PFQuery] = []
+            if result!.isEmpty {
+                self.refreshControl?.endRefreshing()
+            }
             for obj in result! {
                 print(obj.objectId!)
                 queries.append(PFQuery(className: "ADProfile").whereKey("objectId", equalTo: obj["advertiser"] as! String))
             }
+
             PFQuery.orQueryWithSubqueries(queries).findObjectsInBackgroundWithBlock({ (advertisers, error) in
                 print(advertisers!.count)
                 self.data = advertisers!
                 self.images = [UIImage?](count: self.data.count, repeatedValue: nil)
+                var n = 0
+                if n == self.data.count {
+                    self.refreshControl?.endRefreshing()
+                }
                 for (index, client) in advertisers!.enumerate() {
                     let file = client["image"] as! PFFile
                     file.getDataInBackgroundWithBlock({ (data, error) in
                         print(data)
                         self.images[index] = UIImage(data: data!)
+                        n += 1
+                        if n == self.data.count {
+                            self.refreshControl?.endRefreshing()
+                        }
                         self.tableView.reloadData()
                     })
                 }
-                self.tableView.reloadData()
             })
         }
     }
