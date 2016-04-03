@@ -21,6 +21,7 @@
 		89FB5E281CB08184004B280A /* BroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E271CB08184004B280A /* BroadcastViewController.swift */; };
 		89FB5E2A1CB0A182004B280A /* ADProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E291CB0A182004B280A /* ADProfileViewController.swift */; };
 		89FB5E2C1CB0BBD3004B280A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E2B1CB0BBD3004B280A /* Utils.swift */; };
+		89FB5E2E1CB128BB004B280A /* CLTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E2D1CB128BB004B280A /* CLTableViewController.swift */; };
 		AC97D1F51CB09C2C003A22A2 /* CLProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97D1F41CB09C2C003A22A2 /* CLProfileViewController.swift */; };
 		ACEBECCF1CB0FF2C00A7E1C4 /* CLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEBECCE1CB0FF2C00A7E1C4 /* CLTabBarController.swift */; };
 		ACEBECD11CB103F800A7E1C4 /* ADTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEBECD01CB103F800A7E1C4 /* ADTabBarController.swift */; };
@@ -69,6 +70,7 @@
 		89FB5E271CB08184004B280A /* BroadcastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BroadcastViewController.swift; sourceTree = "<group>"; };
 		89FB5E291CB0A182004B280A /* ADProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADProfileViewController.swift; sourceTree = "<group>"; };
 		89FB5E2B1CB0BBD3004B280A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		89FB5E2D1CB128BB004B280A /* CLTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLTableViewController.swift; sourceTree = "<group>"; };
 		AC97D1F41CB09C2C003A22A2 /* CLProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLProfileViewController.swift; sourceTree = "<group>"; };
 		ACEBECCE1CB0FF2C00A7E1C4 /* CLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLTabBarController.swift; sourceTree = "<group>"; };
 		ACEBECD01CB103F800A7E1C4 /* ADTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADTabBarController.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		AC97D1F31CB09C11003A22A2 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				89FB5E2D1CB128BB004B280A /* CLTableViewController.swift */,
 				89FB5DE41CAF8BC7004B280A /* ReceiveViewController.swift */,
 				AC97D1F41CB09C2C003A22A2 /* CLProfileViewController.swift */,
 				ACEBECCE1CB0FF2C00A7E1C4 /* CLTabBarController.swift */,
@@ -269,7 +272,7 @@
 				TargetAttributes = {
 					89FB5DDE1CAF8BC7004B280A = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = SSH7835D9P;
+						DevelopmentTeam = R5H827C655;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -396,6 +399,7 @@
 				89FB5DE51CAF8BC7004B280A /* ReceiveViewController.swift in Sources */,
 				ACEBECD11CB103F800A7E1C4 /* ADTabBarController.swift in Sources */,
 				89FB5E2C1CB0BBD3004B280A /* Utils.swift in Sources */,
+				89FB5E2E1CB128BB004B280A /* CLTableViewController.swift in Sources */,
 				AC97D1F51CB09C2C003A22A2 /* CLProfileViewController.swift in Sources */,
 				89FB5E281CB08184004B280A /* BroadcastViewController.swift in Sources */,
 				89FB5DE31CAF8BC7004B280A /* AppDelegate.swift in Sources */,
@@ -548,7 +552,7 @@
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.2amp.meshapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chris.2amp.meshapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -564,7 +568,7 @@
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.2amp.meshapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chris.2amp.meshapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
