@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="K0O-KR-3PS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="K0O-KR-3PS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,6 +7,9 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
@@ -28,36 +31,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l54-jB-IBV">
-                                <rect key="frame" x="97" y="169" width="406" height="130"/>
+                                <rect key="frame" x="97" y="59" width="406" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="Cay-ZN-Psf"/>
                                     <constraint firstAttribute="width" constant="406" id="swF-jt-cxs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AD details" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqH-R2-wht">
+                                <rect key="frame" x="97" y="203" width="406" height="127"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="406" id="B51-Kg-pmA"/>
+                                    <constraint firstAttribute="height" constant="127" id="QRl-UQ-is7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ow-pT-eF3">
-                                <rect key="frame" x="150" y="442" width="301" height="21"/>
+                                <rect key="frame" x="150" y="392" width="301" height="23.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="301" id="rd9-PR-Nc9"/>
+                                    <constraint firstAttribute="width" constant="301" id="7JU-h4-yZk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="l54-jB-IBV" firstAttribute="top" secondItem="EhI-cO-5nW" secondAttribute="bottom" constant="149" id="4FD-qz-Zyg"/>
+                            <constraint firstItem="l54-jB-IBV" firstAttribute="top" secondItem="EhI-cO-5nW" secondAttribute="bottom" constant="39" id="4FD-qz-Zyg"/>
                             <constraint firstItem="l54-jB-IBV" firstAttribute="centerX" secondItem="Pc7-bG-3bZ" secondAttribute="centerX" id="94s-BH-i0I"/>
-                            <constraint firstItem="8ow-pT-eF3" firstAttribute="top" secondItem="l54-jB-IBV" secondAttribute="bottom" constant="143" id="T5U-0s-zv4"/>
-                            <constraint firstItem="8ow-pT-eF3" firstAttribute="centerX" secondItem="Pc7-bG-3bZ" secondAttribute="centerX" id="zD5-AP-rNq"/>
+                            <constraint firstItem="8ow-pT-eF3" firstAttribute="top" secondItem="BqH-R2-wht" secondAttribute="bottom" constant="62" id="JrO-TK-yhf"/>
+                            <constraint firstItem="BqH-R2-wht" firstAttribute="centerX" secondItem="Pc7-bG-3bZ" secondAttribute="centerX" id="Oxd-Ww-zaP"/>
+                            <constraint firstItem="8ow-pT-eF3" firstAttribute="centerX" secondItem="Pc7-bG-3bZ" secondAttribute="centerX" id="Vpq-hr-gJR"/>
+                            <constraint firstItem="BqH-R2-wht" firstAttribute="top" secondItem="l54-jB-IBV" secondAttribute="bottom" constant="14" id="aRa-Qy-vjl"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Network" id="cE9-XA-nHs"/>
                     <navigationItem key="navigationItem" id="6ff-Kc-oIQ"/>
                     <connections>
+                        <outlet property="lblAdDetails" destination="BqH-R2-wht" id="Evy-bl-PIa"/>
                         <outlet property="lblBeaconDetails" destination="l54-jB-IBV" id="dbc-hu-J4F"/>
                         <outlet property="lblBeaconReport" destination="8ow-pT-eF3" id="bCO-8O-nKu"/>
                     </connections>
