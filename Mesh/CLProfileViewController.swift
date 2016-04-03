@@ -155,6 +155,11 @@ class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate
                                     "phone": phone,
                                     "email": email
                 ])
+            
+            let profileImageData = UIImageJPEGRepresentation(self.ProfileImage.image!, 1.5)
+            let profileImageFile = PFFile(name:"uploaded_image.jpeg", data: profileImageData!)
+            profile["image"] = profileImageFile
+            
             profile.saveInBackgroundWithBlock({ (success, error) in
                 self.saveAIV.stopAnimating()
                 self.saveBtn.setTitle("Save", forState: .Normal)

@@ -163,12 +163,10 @@ class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate
                     ])
                 let profileImageData = UIImageJPEGRepresentation(self.ProfileImage.image!, 1.5)
                 let profileImageFile = PFFile(name:"uploaded_image.jpeg", data: profileImageData!)
+                profile["image"] = profileImageFile
                 
                 let profileMajor = major
                 let profileMinor = minor
-                
-                profile["image"] = profileImageFile
-
                 
                 profile.saveInBackgroundWithBlock({ (success, error) in
                     self.saveAIV.stopAnimating()
