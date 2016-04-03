@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HrK-C2-0vL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HrK-C2-0vL">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -23,45 +23,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvv-JY-Cez">
-                                <rect key="frame" x="280" y="435" width="40" height="30"/>
+                                <rect key="frame" x="302" y="363" width="174" height="30"/>
                                 <state key="normal" title="Client">
-                                    <color key="titleColor" red="0.1535749444" green="0.40999263740000003" blue="0.32475945989999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="gBf-e6-Ji5" kind="show" identifier="clientSegue" id="Ora-yT-qcd"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eRz-g0-7wB">
-                                <rect key="frame" x="125" y="386" width="351" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eRz-g0-7wB">
+                                <rect key="frame" x="125" y="363" width="351" height="29"/>
                                 <color key="backgroundColor" red="0.1535749444" green="0.40999263740000003" blue="0.32475945989999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="351" id="0Dc-pk-sos"/>
+                                    <constraint firstAttribute="height" constant="28" id="W0W-gk-VI1"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Advertiser"/>
                                     <segment title="Client"/>
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Mesh" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1q-SR-xo8">
+                                <rect key="frame" x="166" y="155" width="269" height="158"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="158" id="BID-mn-Gly"/>
+                                    <constraint firstAttribute="width" constant="269" id="iGd-LX-30A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="100"/>
+                                <color key="textColor" red="0.1535749444" green="0.40999263740000003" blue="0.32475945989999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egu-sf-0ul">
-                                <rect key="frame" x="270" y="334" width="71" height="30"/>
+                                <rect key="frame" x="125" y="363" width="175" height="30"/>
                                 <state key="normal" title="Advertiser">
-                                    <color key="titleColor" red="0.15357494436888453" green="0.40999263743455494" blue="0.32475945988581517" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="d3Y-7Q-QPO" kind="show" identifier="advertiserSegue" id="N3R-Dx-cGy"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mesh" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1q-SR-xo8">
-                                <rect key="frame" x="166" y="67" width="269" height="114"/>
-                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="100"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Vvv-JY-Cez" firstAttribute="centerX" secondItem="L1N-RB-ak9" secondAttribute="centerX" id="9ar-rN-9Fk"/>
-                            <constraint firstItem="egu-sf-0ul" firstAttribute="centerX" secondItem="L1N-RB-ak9" secondAttribute="centerX" id="Z8J-cH-cY3"/>
-                            <constraint firstItem="egu-sf-0ul" firstAttribute="top" secondItem="i8R-lE-jY9" secondAttribute="bottom" constant="136" id="buV-bS-tm1"/>
-                            <constraint firstItem="Vvv-JY-Cez" firstAttribute="top" secondItem="egu-sf-0ul" secondAttribute="bottom" constant="86" id="qwe-yB-Elf"/>
+                            <constraint firstItem="Vvv-JY-Cez" firstAttribute="centerX" secondItem="L1N-RB-ak9" secondAttribute="centerX" constant="89" id="9ar-rN-9Fk"/>
+                            <constraint firstItem="egu-sf-0ul" firstAttribute="centerX" secondItem="L1N-RB-ak9" secondAttribute="centerX" constant="-87.5" id="Z8J-cH-cY3"/>
+                            <constraint firstItem="egu-sf-0ul" firstAttribute="top" secondItem="i8R-lE-jY9" secondAttribute="bottom" constant="343" id="buV-bS-tm1"/>
+                            <constraint firstItem="k1q-SR-xo8" firstAttribute="top" secondItem="i8R-lE-jY9" secondAttribute="bottom" constant="135" id="mDh-0f-qYl"/>
+                            <constraint firstItem="k1q-SR-xo8" firstAttribute="top" secondItem="i8R-lE-jY9" secondAttribute="bottom" constant="135" id="o4F-4s-VHB"/>
+                            <constraint firstItem="Vvv-JY-Cez" firstAttribute="top" secondItem="egu-sf-0ul" secondAttribute="bottom" constant="-30" id="qwe-yB-Elf"/>
                         </constraints>
                     </view>
                 </viewController>
