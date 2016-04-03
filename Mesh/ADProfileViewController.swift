@@ -9,11 +9,15 @@
 import UIKit
 import Parse
 
-class ADProfileViewController: UIViewController {
+class ADProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    @IBOutlet var ProfileImage: UIImageView!
     @IBOutlet var nameTF: UITextField!
     @IBOutlet var affiliationTF: UITextField!
     @IBOutlet var phoneTF: UITextField!
     @IBOutlet var emailTF: UITextField!
+    
+    
+    let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,14 @@ class ADProfileViewController: UIViewController {
         let swipeDownGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGestureRecognizer))
         swipeDownGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Down
         view.addGestureRecognizer(swipeDownGestureRecognizer)
+        
+        // Let users pick an image
+        imagePicker.delegate = self
+        ProfileImage.layer.borderWidth = 1
+        ProfileImage.layer.masksToBounds = false
+        ProfileImage.layer.borderColor = UIColor.blackColor().CGColor
+        ProfileImage.layer.cornerRadius = ProfileImage.frame.height/2
+        ProfileImage.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,7 +81,27 @@ class ADProfileViewController: UIViewController {
             }
         })
     }
-
+    
+    @IBAction func loadImageButtonTapped(sender: UIButton) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            ProfileImage.contentMode = .ScaleAspectFill
+            ProfileImage.image = pickedImage
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

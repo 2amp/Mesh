@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AeO-gu-V0I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AeO-gu-V0I">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -33,18 +33,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Affiliation (company/college)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjW-p4-uP7">
-                                <rect key="frame" x="20" y="58" width="560" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Affiliation (company/college)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjW-p4-uP7">
+                                <rect key="frame" x="20" y="247" width="560" height="30"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1je-FX-VB5">
-                                <rect key="frame" x="20" y="96" width="560" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1je-FX-VB5">
+                                <rect key="frame" x="20" y="285" width="560" height="30"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mpc-E3-6HX">
-                                <rect key="frame" x="20" y="20" width="560" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mpc-E3-6HX">
+                                <rect key="frame" x="145" y="20" width="310" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="582" id="zhp-Mi-mfs"/>
                                 </constraints>
@@ -56,18 +56,14 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jsU-EC-w8S">
-                                <rect key="frame" x="20" y="134" width="560" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jsU-EC-w8S">
+                                <rect key="frame" x="20" y="323" width="560" height="30"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVC-5C-Ot6">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVC-5C-Ot6">
                                 <rect key="frame" x="245" y="491" width="111" height="52"/>
                                 <color key="backgroundColor" red="0.12592843440000001" green="0.37181490379999999" blue="0.20969192850000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="111" id="JBw-Xk-NFb"/>
-                                    <constraint firstAttribute="height" constant="52" id="fb1-LW-UIH"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,27 +72,26 @@
                                     <action selector="saveTapped" destination="kvN-sq-kD5" eventType="touchUpInside" id="b5Y-kd-ktd"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="soh-k5-agM">
+                                <rect key="frame" x="233" y="58" width="135" height="135"/>
+                                <color key="backgroundColor" red="0.95285570580000001" green="0.94523028229999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9v-hU-q9S">
+                                <rect key="frame" x="362" y="185" width="30" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.95285570580000001" green="0.94523028229999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loadImageButtonTapped:" destination="kvN-sq-kD5" eventType="touchUpInside" id="9el-At-EDZ"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mpc-E3-6HX" firstAttribute="top" secondItem="BdO-DE-cVG" secondAttribute="bottom" id="4uc-Iv-Eb3"/>
-                            <constraint firstItem="brF-vf-TA7" firstAttribute="top" secondItem="NVC-5C-Ot6" secondAttribute="bottom" constant="8" id="6ZB-vn-OVC"/>
-                            <constraint firstItem="sjW-p4-uP7" firstAttribute="top" secondItem="BdO-DE-cVG" secondAttribute="bottom" constant="38" id="AaA-M4-2gp"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="mpc-E3-6HX" secondAttribute="leading" id="F9d-IP-WXf"/>
-                            <constraint firstItem="jsU-EC-w8S" firstAttribute="top" secondItem="BdO-DE-cVG" secondAttribute="bottom" constant="114" id="GbG-fQ-AHl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sjW-p4-uP7" secondAttribute="trailing" id="KUM-Lq-Qes"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="jsU-EC-w8S" secondAttribute="leading" id="XHr-qi-tzN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mpc-E3-6HX" secondAttribute="trailing" id="anH-6n-UA9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jsU-EC-w8S" secondAttribute="trailing" id="b94-DU-4nd"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="sjW-p4-uP7" secondAttribute="leading" id="eL3-js-thh"/>
-                            <constraint firstItem="NVC-5C-Ot6" firstAttribute="centerX" secondItem="1O6-7H-elP" secondAttribute="centerX" id="mEe-UD-VwS"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="1je-FX-VB5" secondAttribute="leading" id="nZh-6t-Bg8"/>
-                            <constraint firstItem="1je-FX-VB5" firstAttribute="top" secondItem="BdO-DE-cVG" secondAttribute="bottom" constant="76" id="pSb-mL-ZZa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1je-FX-VB5" secondAttribute="trailing" id="xdk-1Z-W84"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.54596919359999996" green="0.56812998770000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="7ui-QU-kMZ"/>
                     <connections>
+                        <outlet property="ProfileImage" destination="soh-k5-agM" id="W7a-Bk-oGQ"/>
                         <outlet property="affiliationTF" destination="sjW-p4-uP7" id="DdX-qh-Eyg"/>
                         <outlet property="emailTF" destination="1je-FX-VB5" id="tOD-b7-oij"/>
                         <outlet property="nameTF" destination="mpc-E3-6HX" id="oZ7-41-euT"/>

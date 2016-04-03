@@ -11,7 +11,6 @@ import UIKit
 class CLProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
    
     @IBOutlet var ProfileImage: UIImageView!
-    @IBOutlet var btnAction: UIButton!
     
     let imagePicker = UIImagePickerController()
     
