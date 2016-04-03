@@ -77,7 +77,7 @@ class ReceiveViewController: UIViewController, CLLocationManagerDelegate {
                 lastFoundBeacon = closestBeacon
                 lastProximity = closestBeacon.proximity
 
-                if lastAdvertiserMM.major != lastFoundBeacon.major.integerValue || lastAdvertiserMM.minor != lastFoundBeacon.minor.integerValue {
+//                if lastAdvertiserMM.major != lastFoundBeacon.major.integerValue || lastAdvertiserMM.minor != lastFoundBeacon.minor.integerValue {
                     lastAdvertiserMM.major = lastFoundBeacon.major.integerValue
                     lastAdvertiserMM.minor = lastFoundBeacon.minor.integerValue
                     let query = PFQuery(className: "MMtoADId").whereKey("major", equalTo: lastAdvertiserMM.major).whereKey("minor", equalTo: lastAdvertiserMM.minor)
@@ -90,7 +90,7 @@ class ReceiveViewController: UIViewController, CLLocationManagerDelegate {
                             self.lblAdDetails.text = "AD Details\nName: \(name)"
                         })
                     })
-                }
+//                }
 
                 var proximityMessage: String!
                 switch lastFoundBeacon.proximity {
