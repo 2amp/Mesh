@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ReceiveViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var lblBeaconReport: UILabel!
     @IBOutlet weak var lblBeaconDetails: UILabel!
 

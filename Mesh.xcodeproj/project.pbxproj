@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		89FB5DE31CAF8BC7004B280A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5DE21CAF8BC7004B280A /* AppDelegate.swift */; };
-		89FB5DE51CAF8BC7004B280A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5DE41CAF8BC7004B280A /* ViewController.swift */; };
+		89FB5DE51CAF8BC7004B280A /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5DE41CAF8BC7004B280A /* ReceiveViewController.swift */; };
 		89FB5DE81CAF8BC7004B280A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FB5DE61CAF8BC7004B280A /* Main.storyboard */; };
 		89FB5DEB1CAF8BC7004B280A /* Mesh.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5DE91CAF8BC7004B280A /* Mesh.xcdatamodeld */; };
 		89FB5DED1CAF8BC7004B280A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FB5DEC1CAF8BC7004B280A /* Assets.xcassets */; };
@@ -48,7 +48,7 @@
 		2C35BE4560C30589782205D8 /* Pods_Mesh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mesh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FB5DDF1CAF8BC7004B280A /* Mesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FB5DE21CAF8BC7004B280A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		89FB5DE41CAF8BC7004B280A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		89FB5DE41CAF8BC7004B280A /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
 		89FB5DE71CAF8BC7004B280A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89FB5DEA1CAF8BC7004B280A /* Mesh.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mesh.xcdatamodel; sourceTree = "<group>"; };
 		89FB5DEC1CAF8BC7004B280A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,7 +139,6 @@
 			children = (
 				89FB5E241CB07C83004B280A /* Fonts */,
 				89FB5DE21CAF8BC7004B280A /* AppDelegate.swift */,
-				89FB5DE41CAF8BC7004B280A /* ViewController.swift */,
 				89FB5DE61CAF8BC7004B280A /* Main.storyboard */,
 				89FB5E201CB07B37004B280A /* Client.storyboard */,
 				89FB5E1E1CB07ADC004B280A /* Advertiser.storyboard */,
@@ -184,6 +183,7 @@
 		AC97D1F31CB09C11003A22A2 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				89FB5DE41CAF8BC7004B280A /* ReceiveViewController.swift */,
 				AC97D1F41CB09C2C003A22A2 /* CLProfileViewController.swift */,
 			);
 			name = Client;
@@ -260,7 +260,7 @@
 				TargetAttributes = {
 					89FB5DDE1CAF8BC7004B280A = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = R5H827C655;
+						DevelopmentTeam = SSH7835D9P;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -383,7 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89FB5DEB1CAF8BC7004B280A /* Mesh.xcdatamodeld in Sources */,
-				89FB5DE51CAF8BC7004B280A /* ViewController.swift in Sources */,
+				89FB5DE51CAF8BC7004B280A /* ReceiveViewController.swift in Sources */,
 				89FB5E2C1CB0BBD3004B280A /* Utils.swift in Sources */,
 				AC97D1F51CB09C2C003A22A2 /* CLProfileViewController.swift in Sources */,
 				89FB5E281CB08184004B280A /* BroadcastViewController.swift in Sources */,
@@ -535,7 +535,7 @@
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chris.2amp.meshapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.2amp.meshapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -549,7 +549,7 @@
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chris.2amp.meshapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.2amp.meshapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
