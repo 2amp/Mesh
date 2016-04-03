@@ -21,8 +21,8 @@
 		89FB5E281CB08184004B280A /* BroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E271CB08184004B280A /* BroadcastViewController.swift */; };
 		89FB5E2A1CB0A182004B280A /* ADProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E291CB0A182004B280A /* ADProfileViewController.swift */; };
 		89FB5E2C1CB0BBD3004B280A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB5E2B1CB0BBD3004B280A /* Utils.swift */; };
-		BA045FE55011BF2B17256B37 /* Pods_Mesh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C35BE4560C30589782205D8 /* Pods_Mesh.framework */; };
 		AC97D1F51CB09C2C003A22A2 /* CLProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97D1F41CB09C2C003A22A2 /* CLProfileViewController.swift */; };
+		BA045FE55011BF2B17256B37 /* Pods_Mesh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C35BE4560C30589782205D8 /* Pods_Mesh.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -260,7 +260,7 @@
 				TargetAttributes = {
 					89FB5DDE1CAF8BC7004B280A = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = R5H827C655;
+						DevelopmentTeam = SSH7835D9P;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -535,7 +535,7 @@
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chris.2amp.meshapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.2amp.meshapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -549,7 +549,7 @@
 				INFOPLIST_FILE = Mesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chris.2amp.meshapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.2amp.meshapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
