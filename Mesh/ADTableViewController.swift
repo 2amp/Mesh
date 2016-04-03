@@ -11,6 +11,7 @@ import Parse
 
 class ADTableViewController: UITableViewController {
     var data: [PFObject] = []
+    var images: [UIImage?] = []
     let defaults = NSUserDefaults.standardUserDefaults()
 
     var expandedIndex: Int?
@@ -27,6 +28,15 @@ class ADTableViewController: UITableViewController {
             PFQuery.orQueryWithSubqueries(queries).findObjectsInBackgroundWithBlock({ (clients, error) in
                 print(clients!.count)
                 self.data = clients!
+                self.images = [UIImage?](count: self.data.count, repeatedValue: nil)
+                for (index, client) in clients!.enumerate() {
+                    let file = client["image"] as! PFFile
+                    file.getDataInBackgroundWithBlock({ (data, error) in
+                        print(data)
+                        self.images[index] = UIImage(data: data!)
+                        self.tableView.reloadData()
+                    })
+                }
                 self.tableView.reloadData()
             })
         }
@@ -47,12 +57,13 @@ class ADTableViewController: UITableViewController {
         let emailLbl = cell.viewWithTag(101) as! UILabel
         let affLbl = cell.viewWithTag(102) as! UILabel
         let phoneLbl = cell.viewWithTag(103) as! UILabel
+        let profPic = cell.viewWithTag(200) as! UIImageView
 
-        print(data[indexPath.row].allKeys)
         nameLbl.text = data[indexPath.row]["name"] as? String
         emailLbl.text = data[indexPath.row]["email"] as? String
         affLbl.text = data[indexPath.row]["affiliation"] as? String
         phoneLbl.text = data[indexPath.row]["phone"] as? String
+        profPic.image = images[indexPath.row]
 
         return cell
     }
