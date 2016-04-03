@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import CoreLocation
+import Parse
+import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -33,6 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         notification.alertBody = "App was woken up"
         notification.soundName = UILocalNotificationDefaultSoundName
         UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+
+        // Connect to Parse server
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = "YOUR_APP_ID"
+            $0.server = "http://YOUR_PARSE_SERVER:1337/parse"
+        }
+        Parse.initializeWithConfiguration(configuration)
+
         return true
     }
 
